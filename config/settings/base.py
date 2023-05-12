@@ -71,6 +71,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+    "djangocms_admin_style",
     "django.contrib.admin",
     "django.forms",
 ]
@@ -89,6 +90,10 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "surfgreen_app.users",
+    "cms",
+    "menus",
+    "treebeard",
+    "sekizai",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -144,6 +149,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "cms.middleware.utils.ApphookReloadMiddleware",
+    "cms.middleware.user.CurrentUserMiddleware",
+    "cms.middleware.page.CurrentPageMiddleware",
+    "cms.middleware.toolbar.ToolbarMiddleware",
+    "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 # STATIC
@@ -190,6 +200,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "surfgreen_app.users.context_processors.allauth_settings",
+                "cms.context_processors.cms_settings",
+                "sekizai.context_processors.sekizai",
             ],
         },
     }
