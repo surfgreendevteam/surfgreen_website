@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=surfgreen_app
+POSTGRES_USER=bVcMETZdKUCHoIxEBuEvzACLFDsIfioQ
+POSTGRES_PASSWORD=xwIeZYlJLfy7oMrDBdLqoS5tJ0B1dSSxIsW3QfgZW8pZb34RT76S9C3H1Jp0jMJW
