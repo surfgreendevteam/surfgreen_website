@@ -1,19 +1,5 @@
 {% extends CMS_TEMPLATE %}
 {% load cms_tags sekizai_tags %}
-{% comment "" %}
-<html>
-    <head>
-        <title>{% page_attribute "page_title" %}</title>
-        {% render_block "css" %}
-    </head>
-    <body>
-        {% cms_toolbar %}
-        {% placeholder "content" %}
-        {% render_block "js" %}
-    </body>
-</html>
-{% endcomment %}
-
 {% block content %}
 <!-- Content here -->
 

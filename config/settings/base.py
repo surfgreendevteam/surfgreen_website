@@ -371,6 +371,7 @@ CMS_TEMPLATES = [
     ("cms/base.html", "Base template"),
     ("cms/home.html", "Home page template"),
     ("cms/blank.html", "Blank template for imprint or data privacy"),
+    ("cms/service.html", "Service template"),
 ]
 
 THUMBNAIL_HIGH_RESOLUTION = True
