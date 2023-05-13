@@ -94,6 +94,17 @@ LOCAL_APPS = [
     "menus",
     "treebeard",
     "sekizai",
+    "filer",
+    "easy_thumbnails",
+    "mptt",
+    "djangocms_text_ckeditor",
+    "djangocms_link",
+    "djangocms_file",
+    "djangocms_picture",
+    "djangocms_video",
+    "djangocms_googlemap",
+    "djangocms_snippet",
+    "djangocms_style",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -226,7 +237,8 @@ SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
 CSRF_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
-X_FRAME_OPTIONS = "DENY"
+# X_FRAME_OPTIONS = "DENY"
+X_FRAME_OPTIONS = "SAMEORIGIN"  # required by django cms
 
 # EMAIL
 # ------------------------------------------------------------------------------
@@ -353,5 +365,22 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
 }
+
+# Django CMS
+CMS_TEMPLATES = [
+    ("cms/base.html", "Base template"),
+    ("cms/home.html", "Home page template"),
+    ("cms/blank.html", "Blank template for imprint or data privacy"),
+]
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    "easy_thumbnails.processors.colorspace",
+    "easy_thumbnails.processors.autocrop",
+    "filer.thumbnail_processors.scale_and_crop_with_subject_location",
+    "easy_thumbnails.processors.filters",
+)
+
 # Your stuff...
 # ------------------------------------------------------------------------------
