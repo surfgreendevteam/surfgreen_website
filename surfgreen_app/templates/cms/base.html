@@ -1,4 +1,4 @@
-{% load cms_tags sekizai_tags static i18n compress%}<!DOCTYPE html>
+{% load cms_tags sekizai_tags menu_tags static i18n compress%}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
@@ -58,7 +58,7 @@
                           <img src="assets/img/logo.svg" width="47" alt="Silicon">
                           {% trans "Surfgreen.dev - Python Django Fullstack Webentwicklung" %}
                         </div>
-                        <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit. Non feugiat feugiat egestas nulla nec. Arcu tempus, eget elementum dolor ullamcorper sodales ultrices eros.</p>
+                        <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">{% placeholder "footer_text" %}</p>
                         <form class="needs-validation" novalidate>
                           <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
                           <div class="input-group">
@@ -77,6 +77,7 @@
                             </h6>
                             <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
                                 <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                                    {% show_menu 0 100 100 100 %}
                                 <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Services</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Case Studies</a></li>
