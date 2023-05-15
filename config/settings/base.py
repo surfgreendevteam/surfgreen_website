@@ -4,6 +4,7 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 import environ
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # surfgreen_app/
@@ -23,9 +24,13 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
 # In Windows, this must be set to your system time zone.
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Berlin"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "de"
+LANGUAGES = [
+    ("de", _("German")),
+    ("en", _("English")),
+]
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -66,6 +71,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+    "djangocms_admin_style",
     "django.contrib.admin",
     "django.forms",
 ]
@@ -84,6 +90,21 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "surfgreen_app.users",
+    "cms",
+    "menus",
+    "treebeard",
+    "sekizai",
+    "filer",
+    "easy_thumbnails",
+    "mptt",
+    "djangocms_text_ckeditor",
+    "djangocms_link",
+    "djangocms_file",
+    "djangocms_picture",
+    "djangocms_video",
+    "djangocms_googlemap",
+    "djangocms_snippet",
+    "djangocms_style",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -139,6 +160,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "cms.middleware.utils.ApphookReloadMiddleware",
+    "cms.middleware.user.CurrentUserMiddleware",
+    "cms.middleware.page.CurrentPageMiddleware",
+    "cms.middleware.toolbar.ToolbarMiddleware",
+    "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 # STATIC
@@ -185,6 +211,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "surfgreen_app.users.context_processors.allauth_settings",
+                "cms.context_processors.cms_settings",
+                "sekizai.context_processors.sekizai",
             ],
         },
     }
@@ -209,7 +237,8 @@ SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
 CSRF_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
-X_FRAME_OPTIONS = "DENY"
+# X_FRAME_OPTIONS = "DENY"
+X_FRAME_OPTIONS = "SAMEORIGIN"  # required by django cms
 
 # EMAIL
 # ------------------------------------------------------------------------------
@@ -336,5 +365,23 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
 }
+
+# Django CMS
+CMS_TEMPLATES = [
+    ("cms/base.html", "Base template"),
+    ("cms/home.html", "Home page template"),
+    ("cms/blank.html", "Blank template for imprint or data privacy"),
+    ("cms/service.html", "Service template"),
+]
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    "easy_thumbnails.processors.colorspace",
+    "easy_thumbnails.processors.autocrop",
+    "filer.thumbnail_processors.scale_and_crop_with_subject_location",
+    "easy_thumbnails.processors.filters",
+)
+
 # Your stuff...
 # ------------------------------------------------------------------------------
