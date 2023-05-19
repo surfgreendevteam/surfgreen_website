@@ -17,6 +17,7 @@ urlpatterns = [
     path("users/", include("surfgreen_app.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("content_marketing/", include("surfgreen_app.content_marketing.urls", namespace="content_marketing")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS
