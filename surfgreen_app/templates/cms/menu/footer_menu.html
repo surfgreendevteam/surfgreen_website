@@ -1,0 +1,15 @@
+{% load menu_tags %}
+<div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+    <ul class="nav flex-column pb-lg-1 mb-lg-3">
+        {% for child in children %}
+        <li class="nav-item child{% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}">
+            <a class="nav-link d-inline-block px-0 pt-1 pb-2" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+            {% if child.children %}
+            <ul>
+                {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
