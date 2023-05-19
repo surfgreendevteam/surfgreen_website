@@ -9,8 +9,10 @@
           <h2 class="h1 pb-3 mb-2 mb-md-3">{{instance.title}}</h2>
           <p class="lead pb-2 mb-3">{{instance.description}}</p>
           <div class="row row-cols-1 row-cols-sm-2 gx-lg-5 g-4">
-            {% for plugin in instance.child_plugin_instances %} {% render_plugin
-            plugin %} {% endfor %}
+            {% verbatim %} {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+            <!-- Render Item -->
+            {% endfor %} {% endverbatim %}
           </div>
         </div>
       </div>

@@ -1,0 +1,14 @@
+<!-- How we work (Steps) -->
+{% load cms_tags %}
+<section class="container pb-5 mb-md-2 mb-lg-4 mb-xl-5">
+    <h2 class="h1 pb-2 pb-md-0 mb-4 mb-md-5">{{instance.title}} </h2>
+    <p class="lead text-muted pb-2 pb-md-3 mb-4">{{instance.description}}</p>
+    <div class="steps steps-sm steps-horizontal-md pb-2 pb-sm-3">
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+    <div class="text-center mt-3">
+        <a class="btn btn-primary" title="{{instance.link_title}}" href="{{instance.link}}">{{instance.link_title}}</a>
+    <div>
+  </section>
