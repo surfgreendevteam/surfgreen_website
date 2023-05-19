@@ -2,13 +2,17 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext as _
 
+from surfgreen_app.content_marketing.forms import ContactForm
 from surfgreen_app.content_marketing.models import (
     ContentLeftRightModule,
+    GetInTouchModule,
     HeroServiceModule,
     HowWeWorkItem,
     HowWeWorkModule,
     OfferServiceItem,
     OfferServiceModule,
+    WhyChooseUsItem,
+    WhyChooseUsModule,
 )
 
 
@@ -85,4 +89,44 @@ class ContentLeftRightModulePublisher(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class WhyChooseUsModulePublisher(CMSPluginBase):
+    model = WhyChooseUsModule
+    module = _("Why Choose Us Module")
+    name = _("Why Choose Us Module Plugin")
+    render_template = "content_marketing/why_choose_us_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class WhyChooseUsItemPublisher(CMSPluginBase):
+    model = WhyChooseUsItem
+    module = _("Why Choose Us Item")
+    name = _("Why Choose Us Item Plugin")
+    render_template = "content_marketing/why_choose_us_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class GetInTouchModulePublisher(CMSPluginBase):
+    model = GetInTouchModule
+    module = _("Get In Touch Module")
+    name = _("Get In Touch Module Plugin")
+    render_template = "content_marketing/get_in_touch.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        form = ContactForm()
+        context.update({"form": form})
         return context
