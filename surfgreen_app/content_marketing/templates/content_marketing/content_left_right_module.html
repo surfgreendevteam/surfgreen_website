@@ -1,0 +1,20 @@
+{% load cms_tags %}
+
+<section class="container pb-sm-1 pb-md-3">
+    <div class="row align-items-lg-center pb-5 mb-2 mb-lg-4 mb-xl-5">
+      <div class="col-md-6 {% if instance.image_is_left %}order-md-2{% endif %} mb-4 mb-md-0">
+        {% if instance.image %}
+            <img title="{{instance.image_title}}" src="{{instance.image.url}}" class="rounded-3" alt="{{instance.image_alt_text}}">
+        {% endif %}
+      </div>
+      <div class="col-md-6 {% if instance.image_is_left %}order-md-1{% endif %}">
+        <div class="ps-xl-5 ms-md-2 ms-lg-4">
+          <h2 class="h1 mb-3 mb-sm-4">{{instance.title}}</h2>
+          <p class="mb-4 mb-lg-5">{{instance.description}}</p>
+          {% if instance.link %}
+            <a title="{{instance.link_title}}" href="{{instance.link}}" class="btn btn-lg btn-primary shadow-primary">{{instance.link_title}}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+</section>

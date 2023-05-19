@@ -3,6 +3,7 @@ from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext as _
 
 from surfgreen_app.content_marketing.models import (
+    ContentLeftRightModule,
     HeroServiceModule,
     HowWeWorkItem,
     HowWeWorkModule,
@@ -69,6 +70,18 @@ class HowWeWorkItemPublisher(CMSPluginBase):
     name = _("How we work Item Plugin")
     render_template = "content_marketing/howwework_service_item.html"
     require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class ContentLeftRightModulePublisher(CMSPluginBase):
+    model = ContentLeftRightModule
+    module = _("Content Left Right Module")
+    name = _("Content Left Right Module Plugin")
+    render_template = "content_marketing/content_left_right_module.html"
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
