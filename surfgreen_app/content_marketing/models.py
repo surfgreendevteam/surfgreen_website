@@ -11,3 +11,21 @@ class HeroServiceModule(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class OfferServiceModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to="offer_service_module", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class OfferServiceItem(CMSPlugin):
+    icon_class = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
