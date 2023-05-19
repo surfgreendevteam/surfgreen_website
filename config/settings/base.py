@@ -106,6 +106,7 @@ LOCAL_APPS = [
     "djangocms_snippet",
     "djangocms_style",
     # Your stuff: custom apps go here
+    "surfgreen_app.content_marketing",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -373,6 +374,7 @@ CMS_TEMPLATES = [
     ("cms/blank.html", "Blank template for imprint or data privacy"),
     ("cms/service.html", "Service template"),
 ]
+# CMS_TEMPLATE = "cms/base.html"
 
 THUMBNAIL_HIGH_RESOLUTION = True
 
