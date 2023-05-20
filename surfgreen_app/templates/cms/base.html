@@ -19,6 +19,10 @@
 
         <!-- This file stores project-specific CSS -->
         {% compress css %}
+        <!-- Vendor Styles -->
+        <link rel="stylesheet" media="screen" href="{% static 'css/boxicons.min.css' %}"/>
+        <link rel="stylesheet" media="screen" href="{% static 'css/swiper-bundle.min.css' %}"/>
+        <link href="{% static 'css/theme.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/project.css' %}" rel="stylesheet">
         {% endcompress %}
         {% endblock %}
@@ -33,7 +37,13 @@
 
           <!-- place project specific Javascript in this file -->
           {% compress js %}
+          <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+          <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+          <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+          <script defer src="{% static 'js/theme.min.js' %}"></script>
+
           <script defer src="{% static 'js/project.js' %}"></script>
+
           {% endcompress %}
 
         {% endblock javascript %}

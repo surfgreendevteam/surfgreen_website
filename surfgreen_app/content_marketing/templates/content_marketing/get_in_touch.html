@@ -1,6 +1,6 @@
 {% load cms_tags i18n %}
 {% load crispy_forms_tags %}
-<section class="container">
+<section id="contact" class="container">
     <div class="bg-secondary rounded-3 py-5 px-3 px-sm-4 px-lg-0">
       <div class="row align-items-center pt-1 pb-2 py-lg-4">
         <div class="col-xl-4 col-lg-5 col-md-6 offset-lg-1 mb-4 pb-3 mb-md-0 pb-md-0">
@@ -75,6 +75,8 @@
                         // Perform any desired actions
                         console.log(response.message);
                         $(".contact-form-success").show();
+                        $('#contact_form input[type="text"], #contact_form input[type="email"], #contact_form textarea').val('');
+                        $('#contact_form input[type="checkbox"]').prop('checked', false);
                     } else {
                         // Form submission errors
                         // Handle errors as needed
