@@ -1,0 +1,9 @@
+{% load cms_tags %}
+<section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
+    <h2 class="h1 text-center pt-1 pt-xl-2 mb-4">{{instance.title}}</h2>
+    <p class="fs-lg text-muted text-center pb-4 mb-2 mb-lg-3">{{instance.description}}</p>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 pb-xl-3">
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+</section>

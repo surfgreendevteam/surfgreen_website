@@ -15,9 +15,14 @@
         <!-- Latest compiled and minified Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Your stuff: Third-party CSS libraries go here -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
         <!-- This file stores project-specific CSS -->
         {% compress css %}
+        <!-- Vendor Styles -->
+        <link rel="stylesheet" media="screen" href="{% static 'css/boxicons.min.css' %}"/>
+        <link rel="stylesheet" media="screen" href="{% static 'css/swiper-bundle.min.css' %}"/>
+        <link href="{% static 'css/theme.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/project.css' %}" rel="stylesheet">
         {% endcompress %}
         {% endblock %}
@@ -32,7 +37,13 @@
 
           <!-- place project specific Javascript in this file -->
           {% compress js %}
+          <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+          <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+          <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+          <script defer src="{% static 'js/theme.min.js' %}"></script>
+
           <script defer src="{% static 'js/project.js' %}"></script>
+
           {% endcompress %}
 
         {% endblock javascript %}
@@ -49,7 +60,8 @@
             {% placeholder "content" %}
             {% endblock content %}
         </main>
-       {% include "cms/footer.html" %}
+
+       {% static_placeholder "footer" %}
 
 
         {% render_block "js" %}

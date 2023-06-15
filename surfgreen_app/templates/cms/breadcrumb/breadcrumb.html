@@ -1,0 +1,23 @@
+<!-- Breadcrumb -->
+{% load menu_tags %}
+<nav class="container py-4 mb-md-2 mb-lg-5 mt-lg-3" aria-label="breadcrumb">
+    <ol class="breadcrumb mb-0">
+        {% for ance in ancestors %}
+            {% if forloop.first %}
+            <li class="breadcrumb-item">
+                <a href="{{ ance.get_absolute_url }}"><i class="bx bx-home-alt fs-lg me-1"></i>{{ ance.get_menu_title }}</a>
+
+            </li>
+            {% elif not forloop.last %}
+                <li class="breadcrumb-item">
+                    <a href="{{ ance.get_absolute_url }}">{{ ance.get_menu_title }}</a>
+
+                </li>
+            {% else %}
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ ance.get_menu_title }}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>

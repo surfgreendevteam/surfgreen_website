@@ -1,0 +1,95 @@
+{% load cms_tags i18n %}
+{% load crispy_forms_tags %}
+<section id="contact" class="container">
+    <div class="bg-secondary rounded-3 py-5 px-3 px-sm-4 px-lg-0">
+      <div class="row align-items-center pt-1 pb-2 py-lg-4">
+        <div class="col-xl-4 col-lg-5 col-md-6 offset-lg-1 mb-4 pb-3 mb-md-0 pb-md-0">
+          <h2 class="h1 mb-lg-4">{{instance.title}}</h2>
+          <p class="pb-2 pb-md-4 pb-lg-5">{{instance.description}}</p>
+          <h3 class="mb-lg-4">{{instance.contact_title}}</h3>
+          <ul class="list-unstyled pb-3 pb-md-4 pb-lg-5 mb-2">
+            <li class="mb-2">
+              <a href="tel:{{instance.phone_number}}" class="nav-link d-flex align-items-center p-0">
+                <i class="bx bx-phone-call fs-xl text-primary me-2"></i>
+                {{instance.phone_number}}
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="mailto:{{instance.email_adress}}" class="nav-link d-flex align-items-center p-0">
+                <i class="bx bx-envelope fs-xl text-primary me-2"></i>
+                {{instance.email_adress}}
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="nav-link d-flex align-items-center p-0">
+                <i class="bx bx-map fs-xl text-primary me-2"></i>
+                {{instance.street_adress}} | {{instance.city_adress}}
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="{{instance.linkedin_link}}" class="btn btn-icon btn-outline-secondary btn-linkedin me-3">
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="{{instance.instagram_link}}" class="btn btn-icon btn-outline-secondary btn-instagram">
+              <i class="bx bxl-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 offset-xl-1">
+          <div class="card border-0 shadow-sm p-sm-2">
+
+            <form id="contact_form" class="card-body" method="POST">
+                <div class="contact-form-success alert alert-success" role="alert" style="display:none">
+                    {% blocktrans %}<strong>Danke!</strong> Wir melden uns in Kuerze.{% endblocktrans %}
+                </div>
+                <div class="contact-form-error alert alert-error" role="alert" style="display:none">
+                    {% blocktrans %}<strong>Uppps!</strong> Ein Fehler ist aufgetreten.{% endblocktrans %}
+                </div>
+                <h3 class="h4">{% trans "Kontaktformular" %}</h3>
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" class="btn shadow-primary btn-primary btn-lg" value="{% trans 'Abschicken' %}">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script>
+    $(document).ready(function() {
+        $('#contact_form').submit(function(event) {
+            event.preventDefault();  // Prevent the default form submission
+            $(".contact-form-success").hide();
+            $(".contact-form-error").hide();
+            var formData = $(this).serialize();
+
+            $.ajax({
+                url: '{% url "content_marketing:contact_form" %}',  // URL to your form view
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        // Form submitted successfully
+                        // Perform any desired actions
+                        console.log(response.message);
+                        $(".contact-form-success").show();
+                        $('#contact_form input[type="text"], #contact_form input[type="email"], #contact_form textarea').val('');
+                        $('#contact_form input[type="checkbox"]').prop('checked', false);
+                    } else {
+                        // Form submission errors
+                        // Handle errors as needed
+                        console.log(response.errors);
+                        $(".contact-form-error").show();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle AJAX request error
+                    console.log(xhr.responseText);
+                    $(".contact-form-error").show();
+                }
+            });
+        });
+    });
+</script>
