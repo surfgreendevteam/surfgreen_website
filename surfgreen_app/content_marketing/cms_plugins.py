@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 from surfgreen_app.content_marketing.forms import ContactForm
 from surfgreen_app.content_marketing.models import (
     ContentLeftRightModule,
+    FooterModule,
     GetInTouchModule,
     HeroServiceModule,
     HowWeWorkItem,
@@ -129,4 +130,16 @@ class GetInTouchModulePublisher(CMSPluginBase):
         context = super().render(context, instance, placeholder)
         form = ContactForm()
         context.update({"form": form})
+        return context
+
+
+@plugin_pool.register_plugin
+class FooterModulePublisher(CMSPluginBase):
+    model = FooterModule
+    module = _("Footer Module")
+    name = _("Footer Module Plugin")
+    render_template = "content_marketing/footer.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
         return context

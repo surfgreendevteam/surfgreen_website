@@ -60,7 +60,8 @@
             {% placeholder "content" %}
             {% endblock content %}
         </main>
-       {% include "cms/footer.html" %}
+
+       {% static_placeholder "footer" %}
 
 
         {% render_block "js" %}

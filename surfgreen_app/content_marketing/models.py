@@ -92,3 +92,19 @@ class GetInTouchModule(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class FooterModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    contact_title = models.CharField(max_length=255, blank=True, null=True)
+    phone_number = models.CharField(max_length=255, blank=True, null=True)
+    email_adress = models.CharField(max_length=255, blank=True, null=True)
+    street_adress = models.CharField(max_length=255, blank=True, null=True)
+    city_adress = models.CharField(max_length=255, blank=True, null=True)
+    linkedin_link = models.CharField(max_length=255, blank=True, null=True)
+    instagram_link = models.CharField(max_length=255, blank=True, null=True)
+    seo_text = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
