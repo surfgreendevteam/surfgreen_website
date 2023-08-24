@@ -122,3 +122,21 @@ class CourseDetail(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class CourseDetailContent(CMSPlugin):
+    course = models.ForeignKey("CourseDetail", on_delete=models.CASCADE)
+    step_number = models.PositiveIntegerField()
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+
+class CourseDetailWhatYouLearnItem(CMSPlugin):
+    course = models.ForeignKey("CourseDetail", on_delete=models.CASCADE)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.description

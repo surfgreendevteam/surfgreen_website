@@ -16,6 +16,8 @@ from surfgreen_app.content_marketing.models import (
     WhyChooseUsModule,
     NavbarModule,
     CourseDetail,
+    CourseDetailContent,
+    CourseDetailWhatYouLearnItem,
 )
 
 
@@ -165,6 +167,33 @@ class CourseDetailPublisher(CMSPluginBase):
     modul = _("Course Detail Module")
     name = _("Course Detail Module Plugin")
     render_template = "content_marketing/course_detail.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseContentPublisher(CMSPluginBase):
+    model = CourseDetailContent
+    modul = _("Course Content Module")
+    name = _("Course Content Module Plugin")
+    render_template = "content_marketing/course_content.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseWhatYouLearnPublisher(CMSPluginBase):
+    model = CourseDetailWhatYouLearnItem
+    modul = _("Course What You Learn Module")
+    name = _("Course What You Learn Module Plugin")
+    render_template = "content_marketing/course_what_you_learn_item.html"
+    require_parent = True
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
