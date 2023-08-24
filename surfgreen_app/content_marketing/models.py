@@ -108,3 +108,17 @@ class FooterModule(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class NavbarModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class CourseDetail(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title

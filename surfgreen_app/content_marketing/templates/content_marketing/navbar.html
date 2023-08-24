@@ -1,0 +1,44 @@
+{% load cms_tags sekizai_tags menu_tags static i18n compress%}
+
+      <!-- Navbar -->
+      <!-- Remove "fixed-top" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg bg-light shadow-sm fixed-top dark-mode bg-dark ">
+        <div class="container px-3">
+          <a href="/" class="navbar-brand pe-3">
+            <img class="brand" width="150" src="{% static 'images/logo_surfgreen_black.svg' %}" alt="Sufgreen.dev - Web Development with Python Django, Vue.js, React.">
+            {{instance.title}}
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% show_menu 0 100 100 100 "cms/menu/nav_menu.html" %}
+              </ul>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+        </div>
+      </header>
+
+
+
+{% comment %} 
+      <li class="nav-item">
+        <a href="#hero" class="nav-link fs-5 " data-scroll aria-current="page">Home</a> 
+      </li>
+      <li class="nav-item ">
+        <a href="#service" class="nav-link fs-5" data-scroll="" >Unser Service</a>
+      </li>                           
+      
+      <li class="nav-item">
+        <a href="#projects" class="nav-link fs-5" data-scroll="">Projekte</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link fs-5" data-scroll="">Kontakt</a>
+      </li> {% endcomment %}

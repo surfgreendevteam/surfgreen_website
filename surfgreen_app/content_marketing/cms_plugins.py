@@ -14,6 +14,8 @@ from surfgreen_app.content_marketing.models import (
     OfferServiceModule,
     WhyChooseUsItem,
     WhyChooseUsModule,
+    NavbarModule,
+    CourseDetail,
 )
 
 
@@ -139,6 +141,30 @@ class FooterModulePublisher(CMSPluginBase):
     module = _("Footer Module")
     name = _("Footer Module Plugin")
     render_template = "content_marketing/footer.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class NavbarModulPublisher(CMSPluginBase):
+    model = NavbarModule
+    modul = _("Navbar Module")
+    name = _("Navbar Module Plugin")
+    render_template = "content_marketing/navbar.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseDetailPublisher(CMSPluginBase):
+    model = CourseDetail
+    modul = _("Course Detail Module")
+    name = _("Course Detail Module Plugin")
+    render_template = "content_marketing/course_detail.html"
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)

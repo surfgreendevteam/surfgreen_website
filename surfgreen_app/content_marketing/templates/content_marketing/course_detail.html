@@ -1,0 +1,218 @@
+{% load cms_tags sekizai_tags menu_tags static i18n compress %}
+
+<!-- Hero -->
+<section class="jarallax dark-mode bg-dark pt-2 pt-lg-3 pb-lg-5" data-jarallax data-speed="0.35">
+  <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></span>
+  <div class="jarallax-img" style="background-image: url(assets/img/portfolio/courses/single.jpg);"></div>
+  <div class="container position-relative zindex-5 pb-5">
+    <!-- Breadcrumb -->
+    <nav class="py-4" aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+          <a href="landing-online-courses.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="portfolio-courses.html">Courses</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Fullstack Web Developer Course from Scratch</li>
+      </ol>
+    </nav>
+
+    <!-- Badges -->
+    <div class="d-flex pt-3 pb-4 py-sm-4 pt-lg-5">
+      <span class="badge bg-success fs-sm me-2">Best Seller</span>
+      <a href="#" class="badge bg-white text-nav fs-sm text-decoration-none">Web Development</a>
+    </div>
+
+    <!-- Title -->
+    <h1>{{ instance.title }}</h1>
+    <p class="fs-lg text-light opacity-70">Egestas feugiat lorem eu neque suspendisse ullamcorper scelerisque aliquam mauris.</p>
+
+    <!-- Stats -->
+    <div class="d-sm-flex py-3 py-md-4 py-xl-5">
+      <div class="d-flex border-sm-end pe-sm-3 me-sm-3 mb-2 mb-sm-0">
+        <div class="text-nowrap me-1">
+          <i class="bx bxs-star text-warning"></i>
+          <i class="bx bxs-star text-warning"></i>
+          <i class="bx bxs-star text-warning"></i>
+          <i class="bx bxs-star text-warning"></i>
+          <i class="bx bx-star text-muted opacity-75"></i>
+        </div>
+        <span class="text-light opacity-70">(1.2K reviews)</span>
+      </div>
+      <div class="d-flex border-sm-end pe-sm-3 me-sm-3 mb-2 mb-sm-0">
+        <i class="bx bx-like fs-xl text-light opacity-70 me-1"></i>
+        <span class="text-light opacity-70">4.2K likes</span>
+      </div>
+      <div class="d-flex">
+        <i class="bx bx-time fs-xl text-light opacity-70 me-1"></i>
+        <span class="text-light opacity-70">220 hours</span>
+      </div>
+    </div>
+
+    <!-- Author -->
+    <div class="d-flex align-items-center mt-xl-5 pt-2 pt-md-4 pt-lg-5">
+      <img src="assets/img/avatar/17.jpg" class="rounded-circle" width="60" alt="Albert Flores" />
+      <div class="ps-3">
+        <div class="text-light opacity-80 mb-1">Created by</div>
+        <h6>Albert Flores</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Course description -->
+<section class="container pt-5 mt-2 mt-lg-4 mt-xl-5">
+  <div class="row">
+    <!-- Sidebar (Course summary) -->
+    <aside class="col-lg-4 col-md-5 offset-xl-1 order-md-2 mb-5">
+      <div style="margin-top: -96px;"></div>
+      <div class="position-sticky top-0 pt-5">
+        <div class="pt-5 mt-md-3">
+          <div class="card shadow-sm p-sm-3">
+            <div class="card-body">
+              <h4 class="mb-4">This course includes:</h4>
+              <ul class="list-unstyled pb-3">
+                <li class="d-flex align-items-center mb-2">
+                  <i class="bx bx-slideshow fs-xl text-muted me-2 pe-1"></i>
+                  220 hours on-demand video
+                </li>
+                <li class="d-flex align-items-center mb-2">
+                  <i class="bx bx-file fs-xl text-muted me-2 pe-1"></i>
+                  18 articles
+                </li>
+                <li class="d-flex align-items-center mb-2">
+                  <i class="bx bx-download fs-xl text-muted me-2 pe-1"></i>
+                  25 downloadable resources
+                </li>
+                <li class="d-flex align-items-center mb-2">
+                  <i class="bx bx-infinite fs-xl text-muted me-2 pe-1"></i>
+                  Full lifetime access
+                </li>
+                <li class="d-flex align-items-center mb-2">
+                  <i class="bx bx-trophy fs-xl text-muted me-2 pe-1"></i>
+                  Certificate of completion
+                </li>
+              </ul>
+              <div class="h2 d-flex align-items-center mb-4">
+                $28.99<del class="text-muted fs-xl fw-normal ms-2">49.99</del>
+              </div>
+              <a href="#" class="btn btn-primary btn-lg shadow-primary">Join the course</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <div class="col-xl-7 col-lg-8 col-md-7 order-md-1 mb-5">
+      <h2 class="h1 pb-md-2 pb-lg-3">Course description</h2>
+      <p class="pb-4 mb-3">Suspendisse natoque sagittis, consequat turpis. Sed tristique tellus morbi magna. At vel senectus accumsan, arcu mattis id tempor. Tellus sagittis, euismod porttitor sed tortor est id. Feugiat velit velit, tortor ut. Ut libero cursus nibh lorem urna amet tristique leo. Viverra lorem arcu nam nunc at ipsum quam. A proin id sagittis dignissim mauris condimentum ornare. Tempus mauris sed dictum ultrices.</p>
+      <h3 class="mb-4">What you'll learn</h3>
+      <ul class="list-unstyled mb-5">
+        <li class="d-flex align-items-center mb-2">
+          <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+          Sed lectus donec amet eu turpis interdum.
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+          Nulla at consectetur vitae dignissim porttitor.
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+          Phasellus id vitae dui aliquet mi.
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+          Integer cursus vitae, odio feugiat iaculis aliquet diam, et purus.
+        </li>
+        <li class="d-flex align-items-center mb-2">
+          <i class="bx bx-check-circle text-primary fs-xl me-2"></i>
+          In aenean dolor diam tortor orci eu.
+        </li>
+      </ul>
+
+      <h2 class="h1 pt-md-2 pt-lg-4 pt-xl-5 pb-md-3 pb-lg-4 mb-md-4">Program details</h2>
+      <div class="steps steps-sm">
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">1</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">Introduction. Getting started</h4>
+            <p class="mb-0">Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit tempus placerat.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">2</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">The ultimate HTML developer: advanced HTML</h4>
+            <p class="mb-0">Lobortis diam elit id nibh ultrices sed penatibus donec. Nibh iaculis eu sit cras ultricies. Nam eu eget etiam egestas donec scelerisque ut ac enim. Vitae ac nisl, enim nec accumsan vitae est.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">3</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">CSS & CSS3: basic</h4>
+            <p class="mb-0">Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est. Magna ullamcorper potenti elementum ultricies auctor.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">4</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">JavaScript basics for beginners</h4>
+            <p class="mb-0">Morbi porttitor risus imperdiet a, nisl mattis. Amet, faucibus eget in platea vitae, velit, erat eget velit. At lacus ut proin erat.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">5</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">Understanding APIs</h4>
+            <p class="mb-0">Risus morbi euismod in congue scelerisque fusce pellentesque diam consequat. Nisi mauris nibh sed est morbi amet arcu urna. Malesuada feugiat quisque consectetur elementum diam vitae. Dictumst facilisis odio eu quis maecenas risus odio fames bibendum ullamcorper.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <div class="step-number-inner">6</div>
+          </div>
+          <div class="step-body">
+            <h4 class="mb-2">Python from beginner to advanced</h4>
+            <p class="mb-0">Quis risus quisque diam diam. Volutpat neque eget eu faucibus sed urna fermentum risus. Est, mauris morbi nibh massa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Course author -->
+<section class="container py-lg-4 py-xl-5 mt-3 mb-5">
+  <div class="row g-0 bg-dark bg-repeat-0 bg-position-center border rounded-3 overflow-hidden" style="background-image: url(assets/img/portfolio/courses/author-pattern.svg);">
+    <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" style="background-image: url(assets/img/portfolio/courses/author.jpg); min-height: 350px;"></div>
+    <div class="col-md-7 py-xl-5 px-4">
+      <div class="py-5 mx-auto" style="max-width: 530px;">
+        <div class="fs-xl text-light opacity-50 mb-2">Learn from the best</div>
+        <h2 class="h1 text-light mb-4">Albert Flores</h2>
+        <p class="text-light opacity-70 pb-4">Dolor ipsum amet cursus quisque porta adipiscing. Lorem convallis malesuada sed maecenas. Ac dui at vitae mauris cursus in nullam porta sem. Quis pellentesque elementum ac bibendum. Nunc aliquam in tortor facilisis. Vulputate eget risus, metus phasellus. Pellentesque faucibus amet, eleifend diam quam condimentum convallis ultricies placerat. Duis habitasse placerat amet, odio pellentesque rhoncus, feugiat at. Eget pellentesque tristique felis magna fringilla.</p>
+        <div class="d-flex flex-column flex-sm-row">
+          <a href="#" class="btn btn-danger me-sm-4 mb-3 mb-sm-0">
+            <i class="bx bxl-youtube fs-xl me-2"></i>
+            240k subscribers
+          </a>
+          <a href="#" class="btn btn-info">
+            <i class="bx bxl-facebook-square fs-xl me-2"></i>
+            180k followers
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
