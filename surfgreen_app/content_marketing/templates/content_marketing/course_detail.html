@@ -46,7 +46,7 @@
       </div>
       <div class="d-flex">
         <i class="bx bx-time fs-xl text-light opacity-70 me-1"></i>
-        <span class="text-light opacity-70">220 hours</span>
+        <span class="text-light opacity-70">{{instance.duration_hours }} {% trans "Stundnen" %}</span>
       </div>
     </div>
 
@@ -84,7 +84,7 @@
               <ul class="list-unstyled pb-3">
                 <li class="d-flex align-items-center mb-2">
                   <i class="bx bx-slideshow fs-xl text-muted me-2 pe-1"></i>
-                  220 hours on-demand video
+                  {{instance.duration_hours }} {% trans "Stundnen" %} on-demand Video
                 </li>
                 <li class="d-flex align-items-center mb-2">
                   <i class="bx bx-file fs-xl text-muted me-2 pe-1"></i>
@@ -104,7 +104,7 @@
                 </li>
               </ul>
               <div class="h2 d-flex align-items-center mb-4">
-                $28.99<del class="text-muted fs-xl fw-normal ms-2">49.99</del>
+                {{instance.price}}<del class="text-muted fs-xl fw-normal ms-2">49.99</del>
               </div>
               <a href="#" class="btn btn-primary btn-lg shadow-primary">Join the course</a>
             </div>

@@ -119,6 +119,10 @@ class NavbarModule(CMSPlugin):
 
 class CourseDetail(CMSPlugin):
     title = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    duration = models.PositiveIntegerField(
+        blank=True, null=True, help_text="Enter the duration of the course in hours."
+    )
     short_description = models.TextField(blank=True, null=True)
     course_description = models.TextField(blank=True, null=True)
     course_image = models.ImageField(upload_to="course_detail", blank=True, null=True)
