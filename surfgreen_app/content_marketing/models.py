@@ -119,7 +119,18 @@ class NavbarModule(CMSPlugin):
 
 class CourseDetail(CMSPlugin):
     title = models.CharField(max_length=255)
+    short_description = models.TextField(blank=True, null=True)
+    course_description = models.TextField(blank=True, null=True)
+    course_image = models.ImageField(upload_to="course_detail", blank=True, null=True)
+    course_image_title = models.CharField(max_length=255, blank=True, null=True)
+    course_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
+    course_author = models.CharField(max_length=255, blank=True, null=True)
+    course_author_description = models.TextField(blank=True, null=True)
+    course_author_image = models.ImageField(upload_to="course_author", blank=True, null=True)
+    course_author_image_title = models.CharField(max_length=255, blank=True, null=True)
+    course_author_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
 
+    #  course_author_linkedin = models.CharField(max_length=255, blank=True, null=True)  for later
     def __str__(self):
         return self.title
 

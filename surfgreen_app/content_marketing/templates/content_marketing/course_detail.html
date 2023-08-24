@@ -3,7 +3,7 @@
 <!-- Hero -->
 <section class="jarallax dark-mode bg-dark pt-2 pt-lg-3 pb-lg-5" data-jarallax data-speed="0.35">
   <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></span>
-  <div class="jarallax-img" style="background-image: url(assets/img/portfolio/courses/single.jpg);"></div>
+  <div class="jarallax-img" style="background-image: url('{{instance.course_image.url}}');"></div>
   <div class="container position-relative zindex-5 pb-5">
     <!-- Breadcrumb -->
     <nav class="py-4" aria-label="breadcrumb">
@@ -26,7 +26,7 @@
 
     <!-- Title -->
     <h1>{{ instance.title }}</h1>
-    <p class="fs-lg text-light opacity-70">Egestas feugiat lorem eu neque suspendisse ullamcorper scelerisque aliquam mauris.</p>
+    <p class="fs-lg text-light opacity-70">{{ instance.short_description }} </p>
 
     <!-- Stats -->
     <div class="d-sm-flex py-3 py-md-4 py-xl-5">
@@ -52,10 +52,19 @@
 
     <!-- Author -->
     <div class="d-flex align-items-center mt-xl-5 pt-2 pt-md-4 pt-lg-5">
-      <img src="assets/img/avatar/17.jpg" class="rounded-circle" width="60" alt="Albert Flores" />
+      {% if instance.image %}
+      <img
+        src="{{instance.course_author_image.url}}"
+        class="rounded-circle" 
+        width="60" 
+        alt="{{instance.course_author}}"
+        title="{{instance.course_author_image_title}}"
+       
+      />
+      {% endif %}
       <div class="ps-3">
         <div class="text-light opacity-80 mb-1">Created by</div>
-        <h6>Albert Flores</h6>
+        <h6>{{ instance.course_author }} </h6>
       </div>
     </div>
   </div>
@@ -106,8 +115,8 @@
 
     <!-- Content -->
     <div class="col-xl-7 col-lg-8 col-md-7 order-md-1 mb-5">
-      <h2 class="h1 pb-md-2 pb-lg-3">Course description</h2>
-      <p class="pb-4 mb-3">Suspendisse natoque sagittis, consequat turpis. Sed tristique tellus morbi magna. At vel senectus accumsan, arcu mattis id tempor. Tellus sagittis, euismod porttitor sed tortor est id. Feugiat velit velit, tortor ut. Ut libero cursus nibh lorem urna amet tristique leo. Viverra lorem arcu nam nunc at ipsum quam. A proin id sagittis dignissim mauris condimentum ornare. Tempus mauris sed dictum ultrices.</p>
+      <h2 class="h1 pb-md-2 pb-lg-3">{% trans "Kursbeschreibung" %}</h2>
+      <p class="pb-4 mb-3">{{ instance.course_description }}</p>
       <h3 class="mb-4">What you'll learn</h3>
       <ul class="list-unstyled mb-5">
         {% for plugin in instance.child_plugin_instances %}
@@ -135,7 +144,7 @@
 <!-- Course author -->
 <section class="container py-lg-4 py-xl-5 mt-3 mb-5">
   <div class="row g-0 bg-dark bg-repeat-0 bg-position-center border rounded-3 overflow-hidden" style="background-image: url(assets/img/portfolio/courses/author-pattern.svg);">
-    <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" style="background-image: url(assets/img/portfolio/courses/author.jpg); min-height: 350px;"></div>
+    <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" style="background-image: url('{{instance.course_author_image.url}}'); min-height: 350px;"></div>
     <div class="col-md-7 py-xl-5 px-4">
       <div class="py-5 mx-auto" style="max-width: 530px;">
         <div class="fs-xl text-light opacity-50 mb-2">Learn from the best</div>
@@ -146,3 +155,4 @@
     </div>
   </div>
 </section>
+{{ instance.description}}
