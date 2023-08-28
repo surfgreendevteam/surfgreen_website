@@ -152,7 +152,7 @@ class FooterModulePublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class NavbarModulPublisher(CMSPluginBase):
     model = NavbarModule
-    modul = _("Navbar Module")
+    module = _("Navbar Module")
     name = _("Navbar Module Plugin")
     render_template = "content_marketing/navbar.html"
 
@@ -164,7 +164,7 @@ class NavbarModulPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class CourseDetailPublisher(CMSPluginBase):
     model = CourseDetail
-    modul = _("Course Detail Module")
+    module = _("Course Detail Module")
     name = _("Course Detail Module Plugin")
     render_template = "content_marketing/course_detail.html"
     allow_children = True
@@ -177,7 +177,7 @@ class CourseDetailPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class CourseContentPublisher(CMSPluginBase):
     model = CourseDetailContent
-    modul = _("Course Content Module")
+    module = _("Course Detail Module")  # _("Course Content Module")
     name = _("Course Content Module Plugin")
     render_template = "content_marketing/course_content.html"
     require_parent = True
@@ -190,7 +190,7 @@ class CourseContentPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class CourseWhatYouLearnPublisher(CMSPluginBase):
     model = CourseDetailWhatYouLearnItem
-    modul = _("Course What You Learn Module")
+    module = _("Course Detail Module")
     name = _("Course What You Learn Module Plugin")
     render_template = "content_marketing/course_what_you_learn_item.html"
     require_parent = True
@@ -198,3 +198,16 @@ class CourseWhatYouLearnPublisher(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
         return context
+
+
+""" 
+@plugin_pool.register_plugin
+class CourseOverviwePublisher(CMSPluginBase):
+    modul = _("Course Overview Module")
+    name = _("Course Overview Module Plugin")
+    render_template = "content_marketing/course_overview.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+ """

@@ -3,9 +3,11 @@
 <!-- Hero -->
 <section class="jarallax dark-mode bg-dark pt-2 pt-lg-3 pb-lg-5" data-jarallax data-speed="0.35">
   <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></span>
+  {%  if instance.course_image %}
   <div class="jarallax-img" style="background-image: url('{{instance.course_image.url}}');"></div>
+  {% endif %}
   <div class="container position-relative zindex-5 pb-5">
-    <!-- Breadcrumb -->
+{% comment %}     <!-- Breadcrumb -->
     <nav class="py-4" aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item">
@@ -17,11 +19,11 @@
         <li class="breadcrumb-item active" aria-current="page">{{ instance.titel }}</li>
       </ol>
     </nav>
-
+ {% endcomment %}
     <!-- Badges -->
     <div class="d-flex pt-3 pb-4 py-sm-4 pt-lg-5">
       <span class="badge bg-success fs-sm me-2">Best Seller</span>
-      <a href="#" class="badge bg-white text-nav fs-sm text-decoration-none">Web Development</a>
+      <span class="badge bg-white text-nav fs-sm text-decoration-none">Web Development</span>
     </div>
 
     <!-- Title -->
@@ -46,13 +48,13 @@
       </div>
       <div class="d-flex">
         <i class="bx bx-time fs-xl text-light opacity-70 me-1"></i>
-        <span class="text-light opacity-70">{{instance.duration_hours }} {% trans "Stundnen" %}</span>
+        <span class="text-light opacity-70">{{instance.duration }} {% trans "Stunden" %}</span>
       </div>
     </div>
 
     <!-- Author -->
     <div class="d-flex align-items-center mt-xl-5 pt-2 pt-md-4 pt-lg-5">
-      {% if instance.image %}
+      {% if instance.course_author_image %}
       <img
         src="{{instance.course_author_image.url}}"
         class="rounded-circle" 
@@ -63,7 +65,7 @@
       />
       {% endif %}
       <div class="ps-3">
-        <div class="text-light opacity-80 mb-1">Created by</div>
+        <div class="text-light opacity-80 mb-1">{% trans "Erstellt von" %}</div>
         <h6>{{ instance.course_author }} </h6>
       </div>
     </div>
@@ -80,11 +82,11 @@
         <div class="pt-5 mt-md-3">
           <div class="card shadow-sm p-sm-3">
             <div class="card-body">
-              <h4 class="mb-4">This course includes:</h4>
+              <h4 class="mb-4">{% trans "Dieser Kurs beinhaltet" %}: </h4>
               <ul class="list-unstyled pb-3">
                 <li class="d-flex align-items-center mb-2">
                   <i class="bx bx-slideshow fs-xl text-muted me-2 pe-1"></i>
-                  {{instance.duration_hours }} {% trans "Stundnen" %} on-demand Video
+                  {{instance.duration }} {% trans "Stunden" %} on-demand Video
                 </li>
                 <li class="d-flex align-items-center mb-2">
                   <i class="bx bx-file fs-xl text-muted me-2 pe-1"></i>
@@ -127,7 +129,7 @@
        
       </ul>
 
-      <h2 class="h1 pt-md-2 pt-lg-4 pt-xl-5 pb-md-3 pb-lg-4 mb-md-4">Program details</h2>
+      <h2 class="h1 pt-md-2 pt-lg-4 pt-xl-5 pb-md-3 pb-lg-4 mb-md-4">{% trans "Programm Details" %}</h2>
       <div class="steps steps-sm">
      
         {% for plugin in instance.child_plugin_instances %}
@@ -143,11 +145,15 @@
 
 <!-- Course author -->
 <section class="container py-lg-4 py-xl-5 mt-3 mb-5">
-  <div class="row g-0 bg-dark bg-repeat-0 bg-position-center border rounded-3 overflow-hidden" style="background-image: url(assets/img/portfolio/courses/author-pattern.svg);">
-    <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" style="background-image: url('{{instance.course_author_image.url}}'); min-height: 350px;"></div>
+  <div class="row g-0 bg-dark bg-repeat-0 bg-position-center border rounded-3 overflow-hidden" style="background-image: url('{% static 'images/author-pattern.svg' %}');">
+    <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" 
+    {% if instance.course_author_image %}
+    style="background-image: url('{{instance.course_author_image.url}}'); min-height: 350px;">
+    {% endif %}
+  </div>
     <div class="col-md-7 py-xl-5 px-4">
       <div class="py-5 mx-auto" style="max-width: 530px;">
-        <div class="fs-xl text-light opacity-50 mb-2">Learn from the best</div>
+        <div class="fs-xl text-light opacity-50 mb-2">{% trans "Lerne von den Besten" %}</div>
         <h2 class="h1 text-light mb-4">{{ instance.course_author}}</h2>
         <p class="text-light opacity-70 pb-4">{{ instance.course_author_description}}</p>
         
@@ -155,4 +161,3 @@
     </div>
   </div>
 </section>
-{{ instance.description}}

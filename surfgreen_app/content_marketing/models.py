@@ -140,7 +140,6 @@ class CourseDetail(CMSPlugin):
 
 
 class CourseDetailContent(CMSPlugin):
-    course = models.ForeignKey("CourseDetail", on_delete=models.CASCADE)
     step_number = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -150,7 +149,6 @@ class CourseDetailContent(CMSPlugin):
 
 
 class CourseDetailWhatYouLearnItem(CMSPlugin):
-    course = models.ForeignKey("CourseDetail", on_delete=models.CASCADE)
     description = models.TextField()
 
     def __str__(self):
