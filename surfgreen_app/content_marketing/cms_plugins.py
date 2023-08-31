@@ -18,6 +18,8 @@ from surfgreen_app.content_marketing.models import (
     CourseDetail,
     CourseDetailContent,
     CourseDetailWhatYouLearnItem,
+    CourseOverviewModul,
+    CourseOverviewItem,
 )
 
 
@@ -177,7 +179,7 @@ class CourseDetailPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class CourseContentPublisher(CMSPluginBase):
     model = CourseDetailContent
-    module = _("Course Detail Module")  # _("Course Content Module")
+    module = _("Course Detail Module")
     name = _("Course Content Module Plugin")
     render_template = "content_marketing/course_content.html"
     require_parent = True
@@ -200,14 +202,27 @@ class CourseWhatYouLearnPublisher(CMSPluginBase):
         return context
 
 
-""" 
 @plugin_pool.register_plugin
-class CourseOverviwePublisher(CMSPluginBase):
-    modul = _("Course Overview Module")
+class CourseOverviewModulPublisher(CMSPluginBase):
+    model = CourseOverviewModul
+    module = _("Course Overview Module")
     name = _("Course Overview Module Plugin")
     render_template = "content_marketing/course_overview.html"
+    allow_children = True
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
         return context
- """
+
+
+@plugin_pool.register_plugin
+class CourseOverviewItemPublisher(CMSPluginBase):
+    model = CourseOverviewItem
+    module = _("Course Overview Item")
+    name = _("Single Course Item for Overview")
+    render_template = "content_marketing/course_overview_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
