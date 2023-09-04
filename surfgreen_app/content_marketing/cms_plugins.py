@@ -14,6 +14,12 @@ from surfgreen_app.content_marketing.models import (
     OfferServiceModule,
     WhyChooseUsItem,
     WhyChooseUsModule,
+    NavbarModule,
+    CourseDetail,
+    CourseDetailContent,
+    CourseDetailWhatYouLearnItem,
+    CourseOverviewModul,
+    CourseOverviewItem,
 )
 
 
@@ -139,6 +145,83 @@ class FooterModulePublisher(CMSPluginBase):
     module = _("Footer Module")
     name = _("Footer Module Plugin")
     render_template = "content_marketing/footer.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class NavbarModulPublisher(CMSPluginBase):
+    model = NavbarModule
+    module = _("Navbar Module")
+    name = _("Navbar Module Plugin")
+    render_template = "content_marketing/navbar.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseDetailPublisher(CMSPluginBase):
+    model = CourseDetail
+    module = _("Course Detail Module")
+    name = _("Course Detail Module Plugin")
+    render_template = "content_marketing/course_detail.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseContentPublisher(CMSPluginBase):
+    model = CourseDetailContent
+    module = _("Course Detail Module")
+    name = _("Course Content Module Plugin")
+    render_template = "content_marketing/course_content.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseWhatYouLearnPublisher(CMSPluginBase):
+    model = CourseDetailWhatYouLearnItem
+    module = _("Course Detail Module")
+    name = _("Course What You Learn Module Plugin")
+    render_template = "content_marketing/course_what_you_learn_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseOverviewModulPublisher(CMSPluginBase):
+    model = CourseOverviewModul
+    module = _("Course Overview Module")
+    name = _("Course Overview Module Plugin")
+    render_template = "content_marketing/course_overview.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class CourseOverviewItemPublisher(CMSPluginBase):
+    model = CourseOverviewItem
+    module = _("Course Overview Item")
+    name = _("Single Course Item for Overview")
+    render_template = "content_marketing/course_overview_item.html"
+    require_parent = True
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)

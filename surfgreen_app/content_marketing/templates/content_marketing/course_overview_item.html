@@ -1,0 +1,42 @@
+ 
+ {% load cms_tags static i18n %}
+
+ <!-- Item -->
+ <div class="col pb-1 pb-lg-3 mb-4">
+    <article class="card h-100 border-0 shadow-sm">
+      <div class="position-relative">
+        <a href="{{instance.link}}" class="d-block position-absolute w-100 h-100 top-0 start-0"></a>
+        <span class="badge bg-success position-absolute top-0 start-0 zindex-2 mt-3 ms-3">Badges </span>
+        {% if instance.course_image %}
+        <img
+          src="{{instance.course_image.url}}"
+          class="card-img-top"
+          alt="{{instance.course_image_alt_text}}"
+          title="{{instance.course_image_title}}"
+         
+        />
+        {% endif %}
+     
+      </div>
+      <div class="card-body pb-3">
+        <h3 class="h5 mb-2">
+         
+          <a href="{{instance.link}}">{{instance.title}}</a>
+        </h3>
+        <p class="fs-sm mb-2">{%  trans "Von" %} 
+          {{instance.course_author}}
+        </p>
+        <p class="fs-lg fw-semibold text-primary mb-0">{{instance.price}} </p>
+      </div>
+      <div class="card-footer d-flex align-items-center fs-sm text-muted py-4">
+        <div class="d-flex align-items-center me-4">
+          <i class="bx bx-time fs-xl me-1"></i>
+         {{instance.duration}} h
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="bx bx-like fs-xl me-1"></i>
+          94% (4.2K)
+        </div>
+      </div>
+    </article>
+  </div>

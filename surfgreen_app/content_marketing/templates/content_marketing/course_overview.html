@@ -1,0 +1,39 @@
+{% load cms_tags sekizai_tags static i18n compress %}
+
+
+
+
+
+
+<!-- Page title + Filters -->
+<!-- not sure if we need this can be modified later -->
+<div class="d-lg-flex align-items-center justify-content-between py-4 mt-lg-2">
+    <h1 class="me-3">{{ instance.title }}</h1>
+    <div class="d-md-flex mb-3">
+      <select class="form-select me-md-4 mb-2 mb-md-0" style="min-width: 240px;">
+        <option value="All">All categories</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Mobile Development">Mobile Development</option>
+        <option value="Programming">Programming</option>
+        <option value="Game Development">Game Development</option>
+        <option value="Software Testing">Software Testing</option>
+        <option value="Software Engineering">Software Engineering</option>
+        <option value="Network & Security">Network &amp; Security</option>
+      </select>
+      <div class="position-relative" style="min-width: 300px;">
+        <input type="text" class="form-control pe-5" placeholder="Search courses">
+        <i class="bx bx-search text-nav fs-lg position-absolute top-50 end-0 translate-middle-y me-3"></i>
+      </div>
+    </div>
+  </div>
+ 
+  {% placeholder "Courses"  %}
+  <!-- Courses grid -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-3 gx-md-4 mt-n2 mt-sm-0">
+   
+    {% for plugin in instance.child_plugin_instances %}
+   
+    {% render_plugin plugin %}
+
+    {% endfor %}
+   </div>
