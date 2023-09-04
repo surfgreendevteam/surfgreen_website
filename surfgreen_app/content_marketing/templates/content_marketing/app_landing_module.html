@@ -1,0 +1,250 @@
+{{% load cms_tags i18n %}}
+
+
+
+<!-- Hero -->
+<section class="overflow-hidden pt-5" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);">
+    <div class="container pt-3 pt-sm-4 pt-xl-5">
+      <div class="row pt-md-2 pt-lg-5">
+        <div class="col-md-5 d-flex flex-column mt-md-4 pt-5 pb-3 pb-sm-4 py-md-5">
+          <h1 class="display-4 text-center text-md-start mb-4">{{ instance.title}}</h1>
+          <p class="fs-lg text-center text-md-start pb-2 pb-md-3 mb-4 mb-lg-5">{{ instance.description }}</p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
+            <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">
+              <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+              <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+            </a>
+            <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+              <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
+              <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+            </a>
+          </div>
+          <div class="position-relative d-inline-flex align-items-center justify-content-center justify-content-md-start mt-auto pt-3 pt-md-4 pb-xl-2">
+            <a href="#features" class="btn btn-icon btn-light bg-white stretched-link rounded-circle me-3" data-scroll data-scroll-offset="120">
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <span class="fs-sm">{% trans "Entdecke mehr" %}</span>
+          </div>     
+        </div>
+        <div class="col-md-7 align-self-end">
+          <div class="position-relative overflow-hidden mt-4 pb-3 pt-4 mx-auto me-md-0" style="max-width: 632px;">
+            <div class="ratio ratio-1x1"></div>
+            <img src="assets/img/landing/app-showcase/hero-phone-1.png" class="rellax position-absolute top-0 start-0 zindex-2"  data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone">
+            <img src="assets/img/landing/app-showcase/hero-phone-2.png" class="rellax position-absolute top-0 start-0"  data-rellax-speed="2.8" data-disable-parallax-down="md" alt="Phone">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features -->
+  <section id="features" class="container pt-lg-2 pt-xl-3 pb-3 pb-xl-5 mt-n2 mt-sm-0 mb-2 mb-md-4 mb-lg-5">
+    <div class="row pb-xl-3">
+
+      <!-- Parallax gfx -->
+      <div class="col-lg-5 d-none d-lg-block">
+        <div class="position-relative" style="max-width: 348px;">
+          <img src="assets/img/landing/app-showcase/features/phone.png" alt="Phone">
+          <div class="rellax position-absolute top-0" data-rellax-vertical-scroll-axis="x" data-rellax-horizontal-speed="0.75" data-disable-parallax-down="lg" style="max-width: 348px; right: -2.75rem;">
+            <img src="assets/img/landing/app-showcase/features/card.png" alt="Card">
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature list -->
+      <div class="col-lg-7">
+        <h2 class="h1 text-center text-md-start mb-4">{{ instance.feature_title}}</h2>
+        <p class="fs-lg text-muted text-center text-md-start mb-4 mb-xl-5">{{ instance.feature_description }}</p>
+        <div class="row row-cols-1 row-cols-sm-2 pt-2 pt-sm-3 pt-xl-2">
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start pe-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/payments.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Easy Payments</h3>
+                <p class="mb-0">Id mollis consectetur congue egestas egestas suspendisse blandit justo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start ps-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/security.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Data Security</h3>
+                <p class="mb-0">Augue pulvinar justo, fermentum fames aliquam accumsan vestibulum non.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start pe-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/statistics.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Cost Statistics</h3>
+                <p class="mb-0">Mattis urna ultricies non amet, purus in auctor non. Odio vulputate ac nibh.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start ps-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/support.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Support 24/7</h3>
+                <p class="mb-0">A elementum, imperdiet enim, pretium etiam facilisi in aenean quam mauris.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start pe-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/cashback.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Regular Cashback</h3>
+                <p class="mb-0">Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet eleifend.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
+            <div class="d-flex align-items-start ps-xl-3">
+              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
+                <img src="assets/img/landing/app-showcase/features/happy.svg" alt="Icon">
+              </div>
+              <div class="ps-4 ps-sm-3 ps-md-4">
+                <h3 class="h5 pb-1 mb-2">Top Standards</h3>
+                <p class="mb-0">Faucibus cursus maecenas lorem cursus nibh. Sociis sit risus id. Sit facilisis dolor arcu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+      <!-- How it works (Slider) -->
+      <section class="position-relative bg-secondary py-5">
+        <div class="container mt-3 pt-md-2 pt-lg-4 pb-2 pb-md-4 pb-lg-5">
+          <h2 class="h1 text-center pb-2 pb-md-0 mb-4 mb-md-5">How Does It Work?</h2>
+          <div class="position-relative mx-5">
+
+            <!-- Slider prev/next buttons -->
+            <button type="button" id="prev-screen" class="btn btn-prev btn-icon position-absolute top-50 start-0 ms-n5 translate-middle-y">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button type="button" id="next-screen" class="btn btn-next btn-icon position-absolute top-50 end-0 me-n5 translate-middle-y">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+
+            <!-- Phone frame -->
+            <div class="position-absolute top-0 start-50 translate-middle-x h-100 w-100 w-md-33 zindex-5">
+              <div class="d-flex bg-repeat-0 bg-size-cover w-100 h-100 mx-auto" style="max-width: 328px; background-image: url(assets/img/landing/app-showcase/screens/phone-frame.png);"></div>
+            </div>
+
+            <!-- Phone screen -->
+            <div class="position-absolute top-0 start-50 translate-middle-x h-100 w-100 w-md-33">
+              <div class="d-flex bg-repeat-0 bg-size-cover w-100 h-100 mx-auto" style="max-width: 328px; background-image: url(assets/img/landing/app-showcase/screens/phone-screen.png);"></div>
+            </div>
+
+            <!-- Swiper slider -->
+            <div class="swiper mobile-app-slider" data-swiper-options='{
+              "slidesPerView": 1,
+              "centeredSlides": true,
+              "loop": true,
+              "tabs": true,
+              "pagination": {
+                "el": "#swiper-progress",
+                "type": "progressbar"
+              },
+              "navigation": {
+                "prevEl": "#prev-screen",
+                "nextEl": "#next-screen"
+              },
+              "breakpoints": {
+                "768": { "slidesPerView": 3 }
+              }
+            }'>
+              <div class="swiper-wrapper">
+
+                <!-- Item -->
+                <div class="swiper-slide" data-swiper-tab="#text-1">
+                  <img src="assets/img/landing/app-showcase/screens/01.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div>
+
+                <!-- Item -->
+                <div class="swiper-slide" data-swiper-tab="#text-2">
+                  <img src="assets/img/landing/app-showcase/screens/02.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div>
+
+                <!-- Item -->
+                <div class="swiper-slide" data-swiper-tab="#text-3">
+                  <img src="assets/img/landing/app-showcase/screens/03.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div>
+
+                <!-- Item -->
+                <div class="swiper-slide" data-swiper-tab="#text-4">
+                  <img src="assets/img/landing/app-showcase/screens/04.png" class="d-block mx-auto" width="328" alt="Screen">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper tabs (Description text) -->
+          <div class="row justify-content-center pt-4 mt-2 mt-md-3">
+            <div class="swiper-tabs col-xl-6 col-lg-7 col-md-8 text-center">
+
+              <!-- Text 1 -->
+              <div id="text-1" class="swiper-tab active">
+                <h3 class="h4 pb-1 mb-2">Step 1. Advanced budget management</h3>
+                <p class="mb-0">Consequat ut cras nisl, enim purus in facilisi. Ipsum amet, lectus malesuada risus sollicitudin accumsan. Id sem elit vel vel lectus risus senectus.</p>
+              </div>
+
+              <!-- Text 2 -->
+              <div id="text-2" class="swiper-tab">
+                <h3 class="h4 pb-1 mb-2">Step 2. Latest transaction history</h3>
+                <p class="mb-0">Enim, et amet praesent pharetra. Mi non ante hendrerit amet sed. Arcu sociis tristique quisque hac in consectetur condimentum.</p>
+              </div>
+
+              <!-- Text 3 -->
+              <div id="text-3" class="swiper-tab">
+                <h3 class="h4 pb-1 mb-2">Step 3. Transfers to people from your contact list</h3>
+                <p class="mb-0">Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+              </div>
+
+              <!-- Text 4 -->
+              <div id="text-4" class="swiper-tab">
+                <h3 class="h4 pb-1 mb-2">Step 4. Card-to-card transfers</h3>
+                <p class="mb-0">A sed lorem felis, pulvinar pharetra. At tempus, vel sed faucibus amet sit elementum sed erat. Id nunc blandit pharetra facilisis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider progress -->
+        <div id="swiper-progress" class="swiper-pagination bottom-0" style="top: auto;"></div>
+      </section>
+
+
+      
