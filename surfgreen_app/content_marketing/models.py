@@ -108,3 +108,13 @@ class FooterModule(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class AppLandingModule(CMSPlugin):
+    titel = models.CharField(max_length=255)
+    description = models.TextField()
+    feature_title = models.CharField(max_length=255, blank=True, null=True)
+    feature_description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.titel
