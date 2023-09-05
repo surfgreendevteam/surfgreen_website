@@ -214,3 +214,28 @@ class AppLandingFeatureItem(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class AppLandingHowDoesItWorkModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingHowDoesItWorkScreenItem(CMSPlugin):
+    screen_image = models.ImageField(upload_to="app_landing_how_does_it_work", blank=True, null=True)
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return "data_swiper_slide_index_" + str(self.data_swiper_slide_index)
+
+
+class AppLandingHowDoesItWorkTextItem(CMSPlugin):
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title

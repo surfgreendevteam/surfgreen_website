@@ -23,6 +23,9 @@ from surfgreen_app.content_marketing.models import (
     AppLandingHeroModule,
     AppLandingFeatureItem,
     AppLandingFeatureModule,
+    AppLandingHowDoesItWorkModule,
+    AppLandingHowDoesItWorkScreenItem,
+    AppLandingHowDoesItWorkTextItem,
 )
 
 
@@ -262,6 +265,45 @@ class AppLandingFeatureItemPublisher(CMSPluginBase):
     module = _("App Landing Feature Item")
     name = _("App Landing Feature Item Plugin")
     render_template = "content_marketing/app_landing_feature_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class HowDoesItWorkModulePublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkModule
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Module Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHowDoesItWorkScreenItemPublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkScreenItem
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Screen Item Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_screen_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHowDoesItWorkTextItemPublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkTextItem
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Text Item Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_text_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):
