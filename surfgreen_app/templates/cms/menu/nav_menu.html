@@ -1,0 +1,10 @@
+{% load menu_tags %}
+
+    {% for child in children %}
+    <li class="nav-item">
+        <a class="nav-link fs-5 " href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+        
+    </li>
+    {% endfor %}
+</ul>
+
