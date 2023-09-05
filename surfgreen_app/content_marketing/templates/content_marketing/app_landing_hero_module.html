@@ -1,4 +1,4 @@
-{% load cms_tags i18n %}
+{% load static cms_tags i18n %}
 
 
 {% block content %}
@@ -12,13 +12,13 @@
           <p class="fs-lg text-center text-md-start pb-2 pb-md-3 mb-4 mb-lg-5">{{ instance.description }}</p>
           <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
            <!-- App store link no import of svg yet -->
-            <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">
-              <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
-              <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+            <a href="instance.apple_app_store_link" class="btn btn-dark btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">
+              <img src="{% static 'images/appstore-light.svg' %}" class="light-mode-img" width="124" alt="App Store">
+              <img src="{% static 'images/appstore-dark.svg' %}" class="dark-mode-img" width="124" alt="App Store">
             </a>
-            <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
-              <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
-              <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+            <a href="{{instance.play_store_link}}" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+              <img src="{% static 'images/googleplay-light.svg' %}" class="light-mode-img" width="139" alt="Google Play">
+              <img src="{% static 'images/googleplay-dark.svg' %}" class="dark-mode-img" width="139" alt="Google Play">
             </a>
           </div>
           <div class="position-relative d-inline-flex align-items-center justify-content-center justify-content-md-start mt-auto pt-3 pt-md-4 pb-xl-2">

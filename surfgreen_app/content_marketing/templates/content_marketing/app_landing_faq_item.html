@@ -1,0 +1,15 @@
+<div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+    <h2 class="accordion-header" id="q1-heading">
+      <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q{{instance.question_number}}" aria-expanded="true" aria-controls="q{{instance.question_number}}">
+       {{instance.question}}
+      </button>
+    </h2>
+    <div id="q{{instance.question_number}}" class="accordion-collapse collapse show" aria-labelledby="q{{instance.question_number}}-heading" data-bs-parent="#faq">
+      <div class="accordion-body fs-sm pt-0">
+        <p>{{instance.answer}}</p>
+        
+      </div>
+    </div>
+  </div>
+
+  

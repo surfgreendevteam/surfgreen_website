@@ -1,0 +1,50 @@
+{% load cms_tags i18n %}
+ 
+ 
+ <!-- FAQ -->
+ <section class="container py-5 mb-lg-2">
+    <div class="row py-2 py-md-4 py-lg-5">
+      <div class="col-xl-4 col-md-5 text-center text-md-start pt-md-2 pb-2 pb-md-0 mb-4 mb-md-0">
+        <h2 class="pb-3 mb-1 mb-lg-3">{%trans "Noch Fragen"%}? <br class="d-none d-md-inline">{% trans "Schau Sie die häufig gestellten Fragen & Antworten an." %} 
+          <br class="d-none d-md-inline">{{instance.title}} 
+        </h2>
+        <p class="fs-lg pb-3 mb-2 mb-lg-3">{{ instance.text}}</p>
+        <div class="row row-cols-1 row-cols-sm-2 g-3 g-sm-4">
+          <div class="col">
+            <div class="card card-hover">
+              <div class="card-body pb-3">
+                <i class="bx bxs-phone-call d-block fs-2 text-primary mb-2 py-1"></i>
+                <p class="fs-sm mb-2">
+                  {% trans "Sie haben immer noch Fragen?" %}"
+                </p>
+                <a href="tel:{{instance.phone_number}}" class="btn btn-link stretched-link px-0">
+                  {% trans "Rufen Sie uns an" %}
+                  <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-hover">
+              <div class="card-body pb-3">
+                <i class="bx bx-message-rounded-dots d-block fs-2 text-success mb-2 py-1"></i>
+                <p class="fs-sm mb-2">{% trans "Sie haben immer noch Fragen?" %}"</p>
+                <a href="mailto:{{instance.email}}" class="btn btn-link text-success stretched-link px-0">
+                  {% trans "Schreiben Sie uns" %}<br>
+                  {% trans "eine Email" %}
+                  <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 offset-xl-1">
+        <div class="accordion" id="faq">
+          {% for plugin in instance.child_plugin_instances %}
+          {% render_plugin plugin %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>

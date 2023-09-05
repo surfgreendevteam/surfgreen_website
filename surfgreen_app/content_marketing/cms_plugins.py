@@ -26,6 +26,8 @@ from surfgreen_app.content_marketing.models import (
     AppLandingHowDoesItWorkModule,
     AppLandingHowDoesItWorkScreenItem,
     AppLandingHowDoesItWorkTextItem,
+    AppLandingFaqModule,
+    AppLandingFaqItem,
 )
 
 
@@ -237,8 +239,8 @@ class CourseOverviewItemPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class AppLandingHeroModulePublisher(CMSPluginBase):
     model = AppLandingHeroModule
-    module = _("App Landing Module")
-    name = _("App Landing Module Plugin")
+    module = _("App Landing Hero Module")
+    name = _("App Landing Hero Module Plugin")
     render_template = "content_marketing/app_landing_hero_module.html"
 
     def render(self, context, instance, placeholder):
@@ -304,6 +306,32 @@ class AppLandingHowDoesItWorkTextItemPublisher(CMSPluginBase):
     module = _("App How Does it Work Module")
     name = _("App How Does it Work Text Item Plugin")
     render_template = "content_marketing/app_landing_how_does_it_work_text_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFaqModulePublisher(CMSPluginBase):
+    model = AppLandingFaqModule
+    module = _("App FAQ Module")
+    name = _("App FAQ Module Plugin")
+    render_template = "content_marketing/app_landing_faq_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFaqItemPublisher(CMSPluginBase):
+    model = AppLandingFaqItem
+    module = _("App FAQ Module")
+    name = _("App FAQ Item Plugin")
+    render_template = "content_marketing/app_landing_faq_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):

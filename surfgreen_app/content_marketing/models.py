@@ -187,6 +187,8 @@ class AppLandingHeroModule(CMSPlugin):
     description = models.TextField()
     hero_mockup_image_1 = models.ImageField(upload_to="app_landing", blank=True, null=True)
     hero_mockup_image_2 = models.ImageField(upload_to="app_landing", blank=True, null=True)
+    apple_app_store_link = models.CharField(max_length=255, blank=True, null=True)
+    play_store_link = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -239,3 +241,24 @@ class AppLandingHowDoesItWorkTextItem(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class AppLandingFaqModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    text = models.TextField(blank=True, null=True, help_text="The text below title for the faq section")
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingFaqItem(CMSPlugin):
+    question_number = models.PositiveIntegerField(
+        help_text="The number of the question, important for the data-toggle"
+    )
+    question = models.TextField()
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question
