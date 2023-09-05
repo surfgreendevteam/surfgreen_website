@@ -110,16 +110,6 @@ class FooterModule(CMSPlugin):
         return self.title
 
 
-class AppLandingModule(CMSPlugin):
-    titel = models.CharField(max_length=255)
-    description = models.TextField()
-    feature_title = models.CharField(max_length=255, blank=True, null=True)
-    feature_description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.titel
-
-
 class NavbarModule(CMSPlugin):
     title = models.CharField(max_length=255)
 
@@ -187,6 +177,40 @@ class CourseOverviewItem(CMSPlugin):
     course_image = models.ImageField(upload_to="course_overview", blank=True, null=True)
     course_image_title = models.CharField(max_length=255, blank=True, null=True)
     course_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingHeroModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    hero_mockup_image_1 = models.ImageField(upload_to="app_landing", blank=True, null=True)
+    hero_mockup_image_2 = models.ImageField(upload_to="app_landing", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingFeatureModule(CMSPlugin):
+    features_title = models.CharField(
+        max_length=255, blank=True, null=True, help_text="The heading for the features section"
+    )
+    features_description = models.TextField(
+        blank=True,
+        null=True,
+        help_text="The description for the features section. For single feature add feature plugin",
+    )
+    features_phone_image = models.ImageField(upload_to="app_features", blank=True, null=True)
+
+    def __str__(self):
+        return self.features_title
+
+
+class AppLandingFeatureItem(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    icon = models.ImageField(upload_to="app_landing_feature_item", blank=True, null=True)
 
     def __str__(self):
         return self.title

@@ -1,4 +1,4 @@
-{{% load cms_tags i18n %}}
+{% load cms_tags i18n %}
 
 
 
@@ -7,9 +7,10 @@
     <div class="container pt-3 pt-sm-4 pt-xl-5">
       <div class="row pt-md-2 pt-lg-5">
         <div class="col-md-5 d-flex flex-column mt-md-4 pt-5 pb-3 pb-sm-4 py-md-5">
-          <h1 class="display-4 text-center text-md-start mb-4">{{ instance.title}}</h1>
+          <h1 class="display-4 text-center text-md-start mb-4">{{ instance.title }}</h1>
           <p class="fs-lg text-center text-md-start pb-2 pb-md-3 mb-4 mb-lg-5">{{ instance.description }}</p>
           <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
+           <!-- App store link -->
             <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">
               <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
               <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
@@ -29,8 +30,17 @@
         <div class="col-md-7 align-self-end">
           <div class="position-relative overflow-hidden mt-4 pb-3 pt-4 mx-auto me-md-0" style="max-width: 632px;">
             <div class="ratio ratio-1x1"></div>
-            <img src="assets/img/landing/app-showcase/hero-phone-1.png" class="rellax position-absolute top-0 start-0 zindex-2"  data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone">
-            <img src="assets/img/landing/app-showcase/hero-phone-2.png" class="rellax position-absolute top-0 start-0"  data-rellax-speed="2.8" data-disable-parallax-down="md" alt="Phone">
+            {% if instance.hero_mockup_image_1 %}
+        <img
+          src="{{ instance.hero_mockup_image_1.url }}"
+          class="rellax position-absolute top-0 start-0 zindex-2"  data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone">
+        {% endif %}
+        {% if instance.hero_mockup_image_2 %}
+        <img
+          src="{{ instance.hero_mockup_image_2.url }}"
+          class="rellax position-absolute top-0 start-0"  data-rellax-speed="2.8" data-disable-parallax-down="md" alt="Phone">
+        {% endif %}
+            
           </div>
         </div>
       </div>
@@ -39,106 +49,7 @@
 
 
   <!-- Features -->
-  <section id="features" class="container pt-lg-2 pt-xl-3 pb-3 pb-xl-5 mt-n2 mt-sm-0 mb-2 mb-md-4 mb-lg-5">
-    <div class="row pb-xl-3">
-
-      <!-- Parallax gfx -->
-      <div class="col-lg-5 d-none d-lg-block">
-        <div class="position-relative" style="max-width: 348px;">
-          <img src="assets/img/landing/app-showcase/features/phone.png" alt="Phone">
-          <div class="rellax position-absolute top-0" data-rellax-vertical-scroll-axis="x" data-rellax-horizontal-speed="0.75" data-disable-parallax-down="lg" style="max-width: 348px; right: -2.75rem;">
-            <img src="assets/img/landing/app-showcase/features/card.png" alt="Card">
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature list -->
-      <div class="col-lg-7">
-        <h2 class="h1 text-center text-md-start mb-4">{{ instance.feature_title}}</h2>
-        <p class="fs-lg text-muted text-center text-md-start mb-4 mb-xl-5">{{ instance.feature_description }}</p>
-        <div class="row row-cols-1 row-cols-sm-2 pt-2 pt-sm-3 pt-xl-2">
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start pe-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/payments.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Easy Payments</h3>
-                <p class="mb-0">Id mollis consectetur congue egestas egestas suspendisse blandit justo.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start ps-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/security.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Data Security</h3>
-                <p class="mb-0">Augue pulvinar justo, fermentum fames aliquam accumsan vestibulum non.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start pe-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/statistics.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Cost Statistics</h3>
-                <p class="mb-0">Mattis urna ultricies non amet, purus in auctor non. Odio vulputate ac nibh.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start ps-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/support.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Support 24/7</h3>
-                <p class="mb-0">A elementum, imperdiet enim, pretium etiam facilisi in aenean quam mauris.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start pe-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/cashback.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Regular Cashback</h3>
-                <p class="mb-0">Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet eleifend.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="col pb-2 pb-xl-0 mb-4 mb-xl-5">
-            <div class="d-flex align-items-start ps-xl-3">
-              <div class="d-table bg-secondary rounded-3 flex-shrink-0 p-3 mb-3">
-                <img src="assets/img/landing/app-showcase/features/happy.svg" alt="Icon">
-              </div>
-              <div class="ps-4 ps-sm-3 ps-md-4">
-                <h3 class="h5 pb-1 mb-2">Top Standards</h3>
-                <p class="mb-0">Faucibus cursus maecenas lorem cursus nibh. Sociis sit risus id. Sit facilisis dolor arcu.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  {% placeholder "features" %}
 
 
 
@@ -247,4 +158,3 @@
       </section>
 
 
-      

@@ -20,6 +20,9 @@ from surfgreen_app.content_marketing.models import (
     CourseDetailWhatYouLearnItem,
     CourseOverviewModul,
     CourseOverviewItem,
+    AppLandingHeroModule,
+    AppLandingFeatureItem,
+    AppLandingFeatureModule,
 )
 
 
@@ -221,6 +224,44 @@ class CourseOverviewItemPublisher(CMSPluginBase):
     module = _("Course Overview Item")
     name = _("Single Course Item for Overview")
     render_template = "content_marketing/course_overview_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHeroModulePublisher(CMSPluginBase):
+    model = AppLandingHeroModule
+    module = _("App Landing Module")
+    name = _("App Landing Module Plugin")
+    render_template = "content_marketing/app_landing_hero_module.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFeatureModulePublisher(CMSPluginBase):
+    model = AppLandingFeatureModule
+    module = _("App Landing Feature Module")
+    name = _("App Landing Feature Module Plugin")
+    render_template = "content_marketing/app_landing_feature_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFeatureItemPublisher(CMSPluginBase):
+    model = AppLandingFeatureItem
+    module = _("App Landing Feature Item")
+    name = _("App Landing Feature Item Plugin")
+    render_template = "content_marketing/app_landing_feature_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):
