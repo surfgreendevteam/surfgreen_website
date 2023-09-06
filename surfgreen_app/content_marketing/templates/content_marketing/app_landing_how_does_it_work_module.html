@@ -26,23 +26,7 @@
             </div>
 
             <!-- Swiper slider -->
-            <div class="swiper mobile-app-slider" data-swiper-options='{
-              "slidesPerView": 1,
-              "centeredSlides": true,
-              "loop": true,
-              "tabs": true,
-              "pagination": {
-                "el": "#swiper-progress",
-                "type": "progressbar"
-              },
-              "navigation": {
-                "prevEl": "#prev-screen",
-                "nextEl": "#next-screen"
-              },
-              "breakpoints": {
-                "768": { "slidesPerView": 3 }
-              }
-            }'>
+            <div class="swiper mobile-app-slider" >
               <div class="swiper-wrapper">
                 <!-- Screen Items -->
                 {% for plugin in instance.child_plugin_instances %}
@@ -62,6 +46,7 @@
               
               {% for plugin in instance.child_plugin_instances %}
                 {% if plugin.plugin_type == 'AppLandingHowDoesItWorkTextItemPublisher' %}
+                
                   {% render_plugin plugin %}
                 {% endif %}
               {% endfor %}
@@ -74,5 +59,43 @@
         <!-- Slider progress -->
         <div id="swiper-progress" class="swiper-pagination bottom-0" style="top: auto;"></div>
       </section>
+      <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
-
+      <!-- Initialize Swiper -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var mySwiper = new Swiper(".mobile-app-slider", {
+            slidesPerView: 1,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+              el: "#swiper-progress",
+              type: "progressbar",
+            },
+            navigation: {
+              prevEl: "#prev-screen",
+              nextEl: "#next-screen",
+            },
+            breakpoints: {
+              768: {
+                slidesPerView: 3,
+              },
+            },
+            on: {
+              slideChange: function () {
+                // Remove the "active" class from all tabs
+                var tabs = document.querySelectorAll('.swiper-tab');
+                tabs.forEach(function (tab) {
+                  tab.classList.remove('active');
+                });
+        
+                // Add the "active" class to the currently active tab
+                var activeTabId = 'text-' + (this.realIndex + 1);
+                var activeTab = document.querySelector('#' + activeTabId);
+                activeTab.classList.add('active');
+              },
+            },
+          });
+        });
+      </script>
+      
