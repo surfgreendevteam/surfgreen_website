@@ -28,6 +28,8 @@ from surfgreen_app.content_marketing.models import (
     AppLandingHowDoesItWorkTextItem,
     AppLandingFaqModule,
     AppLandingFaqItem,
+    AppLandingTestimonialsModule,
+    AppLandingTestimonialsItem,
 )
 
 
@@ -332,6 +334,32 @@ class AppLandingFaqItemPublisher(CMSPluginBase):
     module = _("App FAQ Module")
     name = _("App FAQ Item Plugin")
     render_template = "content_marketing/app_landing_faq_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingTestimonialsModulePublisher(CMSPluginBase):
+    model = AppLandingTestimonialsModule
+    module = _("App Testimonials Module")
+    name = _("App Testimonials Module Plugin")
+    render_template = "content_marketing/app_landing_testimonials_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingTestimonialsItemPublisher(CMSPluginBase):
+    model = AppLandingTestimonialsItem
+    module = _("App Testimonials Module")
+    name = _("App Testimonials Item Plugin")
+    render_template = "content_marketing/app_landing_testimonials_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):

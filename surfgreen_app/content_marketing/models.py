@@ -1,5 +1,6 @@
 from cms.models import CMSPlugin
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -262,3 +263,23 @@ class AppLandingFaqItem(CMSPlugin):
 
     def __str__(self):
         return self.question
+
+
+class AppLandingTestimonialsModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingTestimonialsItem(CMSPlugin):
+    stars = models.IntegerField(
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        help_text="The number of stars for the testimonial 0-5(5 is the best)",
+    )
+    testimonial_text = models.TextField(max_length=360)
+    testimonial_author = models.CharField(max_length=255)
+    testimonial_author_role = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return "testimonial of " + self.testimonial_author
