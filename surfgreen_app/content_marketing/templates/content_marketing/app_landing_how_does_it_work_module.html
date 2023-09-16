@@ -1,0 +1,101 @@
+
+{% load cms_tags static i18n %}
+
+<!-- How it works (Slider) -->
+      <section class="position-relative bg-secondary py-5">
+        <div class="container mt-3 pt-md-2 pt-lg-4 pb-2 pb-md-4 pb-lg-5">
+          <h2 class="h1 text-center pb-2 pb-md-0 mb-4 mb-md-5">{{instance.title}}</h2>
+          <div class="position-relative mx-5">
+
+            <!-- Slider prev/next buttons -->
+            <button type="button" id="prev-screen" class="btn btn-prev btn-icon position-absolute top-50 start-0 ms-n5 translate-middle-y">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button type="button" id="next-screen" class="btn btn-next btn-icon position-absolute top-50 end-0 me-n5 translate-middle-y">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+
+            <!-- Phone frame -->
+            <div class="position-absolute top-0 start-50 translate-middle-x h-100 w-100 w-md-33 zindex-5">
+              <div class="d-flex bg-repeat-0 bg-size-cover w-100 h-100 mx-auto" style="max-width: 328px; background-image: url('{% static 'images/phone-frame.png' %}');"></div>
+            </div>
+
+            <!-- Phone screen -->
+            <div class="position-absolute top-0 start-50 translate-middle-x h-100 w-100 w-md-33">
+              <div class="d-flex bg-repeat-0 bg-size-cover w-100 h-100 mx-auto" style="max-width: 328px; background-image: url('{% static 'images/phone-screen.png' %}';"></div>
+            </div>
+
+            <!-- Swiper slider -->
+            <div class="swiper mobile-app-slider" >
+              <div class="swiper-wrapper">
+                <!-- Screen Items -->
+                {% for plugin in instance.child_plugin_instances %}
+                  {% if plugin.plugin_type == 'AppLandingHowDoesItWorkScreenItemPublisher' %}
+                    {% render_plugin plugin %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper tabs (Description text) -->
+          <div class="row justify-content-center pt-4 mt-2 mt-md-3">
+            <div class="swiper-tabs col-xl-6 col-lg-7 col-md-8 text-center">
+
+              <!-- Text Items -->
+              
+              {% for plugin in instance.child_plugin_instances %}
+                {% if plugin.plugin_type == 'AppLandingHowDoesItWorkTextItemPublisher' %}
+                
+                  {% render_plugin plugin %}
+                {% endif %}
+              {% endfor %}
+
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider progress -->
+        <div id="swiper-progress" class="swiper-pagination bottom-0" style="top: auto;"></div>
+      </section>
+     
+
+      <!-- Initialize Swiper -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var mySwiper = new Swiper(".mobile-app-slider", {
+            slidesPerView: 1,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+              el: "#swiper-progress",
+              type: "progressbar",
+            },
+            navigation: {
+              prevEl: "#prev-screen",
+              nextEl: "#next-screen",
+            },
+            breakpoints: {
+              768: {
+                slidesPerView: 3,
+              },
+            },
+            on: {
+              slideChange: function () {
+                // Remove the "active" class from all tabs
+                var tabs = document.querySelectorAll('.swiper-tab');
+                tabs.forEach(function (tab) {
+                  tab.classList.remove('active');
+                });
+        
+                // Add the "active" class to the currently active tab
+                var activeTabId = 'text-' + (this.realIndex + 1);
+                var activeTab = document.querySelector('#' + activeTabId);
+                activeTab.classList.add('active');
+              },
+            },
+          });
+        });
+      </script>
+      
