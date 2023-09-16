@@ -1,0 +1,40 @@
+{% load cms_tags i18n %}
+  
+  
+  <!-- Features -->
+  <section id="features" class="container pt-lg-2 pt-xl-3 pb-3 pb-xl-5 mt-n2 mt-sm-0 mb-2 mb-md-4 mb-lg-5">
+    <div class="row pb-xl-3">
+
+      <!-- Feature img -->
+      <div class="col-lg-5 d-none d-lg-block">
+        <div class="position-relative" style="max-width: 348px;">
+            {% if instance.features_phone_image %}
+            <img
+              src="{{ instance.features_phone_image.url }}"
+                alt="Phone">
+            {% endif %}
+            
+          
+        </div>
+      </div>
+
+      <!-- Feature list -->
+      <div class="col-lg-7">
+        <h2 class="h1 text-center text-md-start mb-4">{{ instance.features_title}}</h2>
+        <p class="fs-lg text-muted text-center text-md-start mb-4 mb-xl-5">{{ instance.features_description }}</p>
+        <div class="row row-cols-1 row-cols-sm-2 pt-2 pt-sm-3 pt-xl-2">
+
+          <!-- Feature Item -->
+          {% for plugin in instance.child_plugin_instances %}
+          {% if plugin.plugin_type == 'AppLandingFeatureItemPublisher' %}
+          {% render_plugin plugin %}
+          {% endif %}
+          {% endfor %}
+
+         
+
+          
+         </div>
+      </div>
+    </div>
+  </section>

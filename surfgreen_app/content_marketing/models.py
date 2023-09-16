@@ -1,5 +1,6 @@
 from cms.models import CMSPlugin
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -180,3 +181,105 @@ class CourseOverviewItem(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+
+class AppLandingHeroModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    hero_mockup_image_1 = models.ImageField(upload_to="app_landing", blank=True, null=True)
+    hero_mockup_image_2 = models.ImageField(upload_to="app_landing", blank=True, null=True)
+    apple_app_store_link = models.CharField(max_length=255, blank=True, null=True)
+    play_store_link = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingFeatureModule(CMSPlugin):
+    features_title = models.CharField(
+        max_length=255, blank=True, null=True, help_text="The heading for the features section"
+    )
+    features_description = models.TextField(
+        blank=True,
+        null=True,
+        help_text="The description for the features section. For single feature add feature plugin",
+    )
+    features_phone_image = models.ImageField(upload_to="app_features", blank=True, null=True)
+
+    def __str__(self):
+        return self.features_title
+
+
+class AppLandingFeatureItem(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    icon = models.ImageField(upload_to="app_landing_feature_item", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingHowDoesItWorkModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingHowDoesItWorkScreenItem(CMSPlugin):
+    screen_image = models.ImageField(upload_to="app_landing_how_does_it_work", blank=True, null=True)
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return "data_swiper_slide_index_" + str(self.data_swiper_slide_index)
+
+
+class AppLandingHowDoesItWorkTextItem(CMSPlugin):
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    data_swiper_slide_index = models.PositiveIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingFaqModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    text = models.TextField(blank=True, null=True, help_text="The text below title for the faq section")
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingFaqItem(CMSPlugin):
+    question_number = models.PositiveIntegerField(
+        help_text="The number of the question, important for the data-toggle"
+    )
+    question = models.TextField()
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question
+
+
+class AppLandingTestimonialsModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class AppLandingTestimonialsItem(CMSPlugin):
+    stars = models.IntegerField(
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        help_text="The number of stars for the testimonial 0-5(5 is the best)",
+    )
+    testimonial_text = models.TextField(max_length=360)
+    testimonial_author = models.CharField(max_length=255)
+    testimonial_author_role = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return "testimonial of " + self.testimonial_author

@@ -20,6 +20,16 @@ from surfgreen_app.content_marketing.models import (
     CourseDetailWhatYouLearnItem,
     CourseOverviewModul,
     CourseOverviewItem,
+    AppLandingHeroModule,
+    AppLandingFeatureItem,
+    AppLandingFeatureModule,
+    AppLandingHowDoesItWorkModule,
+    AppLandingHowDoesItWorkScreenItem,
+    AppLandingHowDoesItWorkTextItem,
+    AppLandingFaqModule,
+    AppLandingFaqItem,
+    AppLandingTestimonialsModule,
+    AppLandingTestimonialsItem,
 )
 
 
@@ -221,6 +231,135 @@ class CourseOverviewItemPublisher(CMSPluginBase):
     module = _("Course Overview Item")
     name = _("Single Course Item for Overview")
     render_template = "content_marketing/course_overview_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHeroModulePublisher(CMSPluginBase):
+    model = AppLandingHeroModule
+    module = _("App Landing Hero Module")
+    name = _("App Landing Hero Module Plugin")
+    render_template = "content_marketing/app_landing_hero_module.html"
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFeatureModulePublisher(CMSPluginBase):
+    model = AppLandingFeatureModule
+    module = _("App Landing Feature Module")
+    name = _("App Landing Feature Module Plugin")
+    render_template = "content_marketing/app_landing_feature_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFeatureItemPublisher(CMSPluginBase):
+    model = AppLandingFeatureItem
+    module = _("App Landing Feature Item")
+    name = _("App Landing Feature Item Plugin")
+    render_template = "content_marketing/app_landing_feature_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class HowDoesItWorkModulePublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkModule
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Module Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHowDoesItWorkScreenItemPublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkScreenItem
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Screen Item Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_screen_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingHowDoesItWorkTextItemPublisher(CMSPluginBase):
+    model = AppLandingHowDoesItWorkTextItem
+    module = _("App How Does it Work Module")
+    name = _("App How Does it Work Text Item Plugin")
+    render_template = "content_marketing/app_landing_how_does_it_work_text_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFaqModulePublisher(CMSPluginBase):
+    model = AppLandingFaqModule
+    module = _("App FAQ Module")
+    name = _("App FAQ Module Plugin")
+    render_template = "content_marketing/app_landing_faq_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingFaqItemPublisher(CMSPluginBase):
+    model = AppLandingFaqItem
+    module = _("App FAQ Module")
+    name = _("App FAQ Item Plugin")
+    render_template = "content_marketing/app_landing_faq_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingTestimonialsModulePublisher(CMSPluginBase):
+    model = AppLandingTestimonialsModule
+    module = _("App Testimonials Module")
+    name = _("App Testimonials Module Plugin")
+    render_template = "content_marketing/app_landing_testimonials_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+
+@plugin_pool.register_plugin
+class AppLandingTestimonialsItemPublisher(CMSPluginBase):
+    model = AppLandingTestimonialsItem
+    module = _("App Testimonials Module")
+    name = _("App Testimonials Item Plugin")
+    render_template = "content_marketing/app_landing_testimonials_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):
