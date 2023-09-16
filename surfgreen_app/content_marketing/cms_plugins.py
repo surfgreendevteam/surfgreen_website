@@ -50,9 +50,9 @@ class HeroServiceModulePublisher(CMSPluginBase):
 @plugin_pool.register_plugin  # register the plugin
 class HomePageHeroModulePublisher(CMSPluginBase):
     model = HomePageHeroModule  # model where plugin data are saved
-    module = _("Home Page About Module")
-    name = _("Home Page About Plugin")  # name of the plugin in the interface
-    render_template = "content_marketing/homepage_about_module.html"
+    module = _("Home Page Hero Module")
+    name = _("Home Page Hero Plugin")  # name of the plugin in the interface
+    render_template = "content_marketing/homepage_hero.html"
 
     def render(self, context, instance, placeholder):
         context.update({"instance": instance})
@@ -62,9 +62,9 @@ class HomePageHeroModulePublisher(CMSPluginBase):
 @plugin_pool.register_plugin  # register the plugin
 class HomePageAboutModulePublisher(CMSPluginBase):
     model = HomepageAboutModule  # model where plugin data are saved
-    module = _("Home Page Hero Module")
-    name = _("Home Page Hero Plugin")  # name of the plugin in the interface
-    render_template = "content_marketing/homepage_hero.html"
+    module = _("Home Page About Module")
+    name = _("Home Page About Plugin")  # name of the plugin in the interface
+    render_template = "content_marketing/homepage_about_module.html"
 
     def render(self, context, instance, placeholder):
         context.update({"instance": instance})
