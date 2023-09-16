@@ -1,0 +1,35 @@
+{% load static cms_tags i18n %}
+<section class="jarallax dark-mode bg-dark min-vh-100" data-jarallax data-speed="0.4">
+    <span class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);"></span>
+    <!--<div class="jarallax-img" style="background-image: url(assets/img/landing/software-agency-2/hero-bg.png);"></div>-->
+    <div class="min-vh-100 d-flex flex-column py-5">
+
+      <div class="container position-relative text-center zindex-5 pt-4 pt-md-5 pb-5 mt-auto">
+        <div class="row mt-5">
+          <div class="col-xl-10 mx-auto">
+            <h1 class="display-1 mb-md-4 pb-3">{{instance.title}}</h1>
+            <p class="mx-auto mb-md-5 mb-4 pb-xl-2 pb-md-0 pb-sm-2 fs-5" style="max-width: 36.5rem;">
+              {{instance.description}}
+            </p>
+            <a href="{{instance.link}}" class="btn btn-lg btn-primary shadow-primary">{{instance.link_text}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-auto pb-lg-2 pb-xl-3">
+        <ul class="list-unstyled d-flex align-items-start justify-content-center flex-wrap text-nowrap mt-xl-0 mt-md-n4 mt-sm-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pt-lg-5 pt-md-4">
+          <li class="d-flex align-items-center mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+            <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+            {{instance.sub_1}}
+          </li>
+          <li class="d-flex align-items-center mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+            <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+            {{instance.sub_2}}
+          </li>
+          <li class="d-flex align-items-center mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+            <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+            {{instance.sub_3}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>

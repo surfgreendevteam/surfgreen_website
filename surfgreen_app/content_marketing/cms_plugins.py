@@ -4,32 +4,33 @@ from django.utils.translation import gettext as _
 
 from surfgreen_app.content_marketing.forms import ContactForm
 from surfgreen_app.content_marketing.models import (
+    AppLandingFaqItem,
+    AppLandingFaqModule,
+    AppLandingFeatureItem,
+    AppLandingFeatureModule,
+    AppLandingHeroModule,
+    AppLandingHowDoesItWorkModule,
+    AppLandingHowDoesItWorkScreenItem,
+    AppLandingHowDoesItWorkTextItem,
+    AppLandingTestimonialsItem,
+    AppLandingTestimonialsModule,
     ContentLeftRightModule,
+    CourseDetail,
+    CourseDetailContent,
+    CourseDetailWhatYouLearnItem,
+    CourseOverviewItem,
+    CourseOverviewModul,
     FooterModule,
     GetInTouchModule,
     HeroServiceModule,
+    HomePageHeroModule,
     HowWeWorkItem,
     HowWeWorkModule,
+    NavbarModule,
     OfferServiceItem,
     OfferServiceModule,
     WhyChooseUsItem,
     WhyChooseUsModule,
-    NavbarModule,
-    CourseDetail,
-    CourseDetailContent,
-    CourseDetailWhatYouLearnItem,
-    CourseOverviewModul,
-    CourseOverviewItem,
-    AppLandingHeroModule,
-    AppLandingFeatureItem,
-    AppLandingFeatureModule,
-    AppLandingHowDoesItWorkModule,
-    AppLandingHowDoesItWorkScreenItem,
-    AppLandingHowDoesItWorkTextItem,
-    AppLandingFaqModule,
-    AppLandingFaqItem,
-    AppLandingTestimonialsModule,
-    AppLandingTestimonialsItem,
 )
 
 
@@ -39,6 +40,18 @@ class HeroServiceModulePublisher(CMSPluginBase):
     module = _("Hero Service Module")
     name = _("Hero Service Module Plugin")  # name of the plugin in the interface
     render_template = "content_marketing/hero_service_module.html"
+
+    def render(self, context, instance, placeholder):
+        context.update({"instance": instance})
+        return context
+
+
+@plugin_pool.register_plugin  # register the plugin
+class HomePageHeroModulePublisher(CMSPluginBase):
+    model = HomePageHeroModule  # model where plugin data are saved
+    module = _("Home Page Hero Module")
+    name = _("Home Page Hero Plugin")  # name of the plugin in the interface
+    render_template = "content_marketing/homepage_hero.html"
 
     def render(self, context, instance, placeholder):
         context.update({"instance": instance})

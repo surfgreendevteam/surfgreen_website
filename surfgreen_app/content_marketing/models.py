@@ -1,6 +1,6 @@
 from cms.models import CMSPlugin
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -283,3 +283,16 @@ class AppLandingTestimonialsItem(CMSPlugin):
 
     def __str__(self):
         return "testimonial of " + self.testimonial_author
+
+
+class HomePageHeroModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    sub_1 = models.CharField(max_length=255)
+    sub_2 = models.CharField(max_length=255)
+    sub_3 = models.CharField(max_length=255)
+    link = models.CharField(max_length=255, blank=True, null=True)
+    link_text = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
