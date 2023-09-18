@@ -30,7 +30,7 @@ class ContactFormAjaxView(View):
 
             message = f"<p>Name: {name}</p><p>Email: {email}</p><p>Message: {message}</p><p>Service: {service}</p>"
 
-            mail_admins(subject, message, fail_silently=True, html_message=message)
+            mail_admins(subject, message, fail_silently=False, html_message=message)
 
             response_data = {"success": True, "message": "Form submitted successfully"}
         else:
