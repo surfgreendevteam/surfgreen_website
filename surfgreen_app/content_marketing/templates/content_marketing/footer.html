@@ -4,11 +4,12 @@
         <div class="row pb-5">
             <div class="col-lg-4 col-md-6">
                 <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
-                  <img class="brand" width="150" src="{% static 'images/logo_surfgreen_black.svg' %}" alt="Sufgreen.dev - Web Development with Python Django, Vue.js, React.">
-                  {{instance.description}}
+                  <img class="brand" width="150" src="{% static 'images/logo_surfgreen_white.svg' %}" alt="Sufgreen.dev - Web Development with Python Django, Vue.js, React.">
+
                 </div>
+                <p>{{instance.description}}</p>
                 <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">{% static_placeholder "footer_text" %}</p>
-                <form class="needs-validation" novalidate>
+                <!--<form class="needs-validation" novalidate>
                   <label for="subscr-email" class="form-label">{% trans "Melden Sie sich bei unserem Newsletter an" %}</label>
                   <div class="input-group">
                     <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder='{% trans "Ihre E-Mail Adresse" %}' required>
@@ -16,7 +17,7 @@
                     <div class="invalid-tooltip position-absolute top-100 start-0">{% trans "Bitte geben Sie eine valide E-Mail Adresse ein." %}</div>
                     <button type="submit" class="btn btn-primary">{% trans "Jetzt abonnieren" %}</button>
                   </div>
-                </form>
+                </form>-->
               </div>
               <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
                 <div id="footer-links" class="row">
@@ -30,7 +31,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-3">
                     <h6 class="mb-2">
-                        <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
+                        <a href="#social-links" class="d-block text-white dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
                     </h6>
                     <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
                         <ul class="nav flex-column mb-2 mb-lg-0">
@@ -40,10 +41,10 @@
                     </div>
                     </div>
                     <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
-                    <h6 class="mb-2">{% trans "Kontakt" %}</h6>
-                    <a href="mailto:{{instance.email_adress}}" class="fw-medium">{{instance.email_adress}}</a>
-                    <a href="tel:{{instance.phone_number}}" class="fw-medium">{{instance.phone_number}}</a>
-                    <p>{{instance.street_adress}} - {{instance.city_adress}}</p>
+                        <h6 class="mb-2">{% trans "Kontakt" %}</h6>
+                        <a href="mailto:{{instance.email_adress}}" class="fw-medium">{{instance.email_adress}}</a><br>
+                        <a href="tel:{{instance.phone_number}}" class="fw-medium">{{instance.phone_number}}</a>
+                        <p>{{instance.street_adress}} <br> {{instance.city_adress}}</p>
                     </div>
                 </div>
             </div>
