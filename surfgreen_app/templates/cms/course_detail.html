@@ -1,0 +1,15 @@
+{% extends "cms/base.html" %}
+{% load menu_tags %}
+{% load cms_tags sekizai_tags %}
+
+{% block content %}
+
+<!-- Content here -->
+{% placeholder "hero" %}
+<div class="mt-4 pt-3">
+    {% show_breadcrumb 0 "cms/breadcrumb/breadcrumb.html" %}
+</div>
+{% placeholder "content_marketing_services" %}
+{% placeholder "pre_footer_content" %}
+{% placeholder "blank_content" %}
+{% endblock content %}
