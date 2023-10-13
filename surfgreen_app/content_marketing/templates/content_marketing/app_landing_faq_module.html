@@ -55,10 +55,10 @@
         {% for plugin in instance.child_plugin_instances %}
         {
           "@type": "Question",
-          "name": "{{plugin.question}}",
+          "name": "{{plugin.question|escapejs}}",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "{{plugin.answer}}"
+            "text": "{{plugin.answer|escapejs}}"
           }
         }{% if not forloop.last %},{% endif %}
         {% endfor %}
