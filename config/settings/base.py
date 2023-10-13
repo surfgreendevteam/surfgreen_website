@@ -47,7 +47,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="postgres:///surfgreen_app",
+        default="postgres:///surfgreen_app_2",
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -70,6 +70,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
     # "django.contrib.humanize", # Handy template tags
     "djangocms_admin_style",
     "django.contrib.admin",

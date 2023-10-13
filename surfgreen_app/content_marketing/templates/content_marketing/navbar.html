@@ -1,26 +1,64 @@
 {% load cms_tags sekizai_tags menu_tags static i18n %}
 
-      <!-- Navbar -->
-      <!-- Remove "fixed-top" class to make navigation bar scrollable with the page -->
-      <header class="header navbar navbar-expand-lg shadow-sm fixed-top dark-mode bg-dark navbar-sticky">
-        <div class="container px-3  ">
-          <a href="/" class="navbar-brand pe-3">
-            <img class="brand" width="150" src="{% static 'images/logo_surfgreen_black.svg' %}" alt="Sufgreen.dev - Web Development with Python Django, Vue.js, React."  style="filter: invert(100%);">
-          </a>
-          <div id="navbarNav" class="offcanvas offcanvas-end">
-            <div class="offcanvas-header border-bottom">
-              <h5 class="offcanvas-title">Menu</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav dark-mode">
-                {% show_menu 0 100 100 100 "cms/menu/nav_menu.html" %}
-              </ul>
-            </div>
+  <!-- Navbar -->
+  <!-- Remove "fixed-top" class to make navigation bar scrollable with the page -->
+  <header class="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand pe-3">
+        <img class="brand" width="180" src="{% static 'images/logo_surfgreen_black.svg' %}" alt="Sufgreen.dev - Django Agentur Web Development Deutschland Bayern">
+      </a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-flex d-lg-none order-lg-3">
+        <a href="tel:+4997215393504" class="nav-link px-2 ms-2" aria-label="Phone">
+          <i class="bx bx-mobile-alt fs-2"></i>
+        </a>
+        <a href="hello@surfgreen.dev" class="nav-link px-2" aria-label="Chat">
+          <i class="bx bx-chat fs-2"></i>
+        </a>
+      </div>
+      <div class="d-none d-lg-flex order-lg-3">
+        <a href="tel:+4997215393504" class="d-flex align-items-center text-decoration-none ms-4">
+          <i class="bx bx-mobile-alt fs-2 text-primary"></i>
+          <div class="fs-sm text-nowrap ps-2">
+            <h6 class="fs-sm mb-0">{% trans "Sofort Beratung" %}</h6>
+            <span class="text-nav">+49 9721 5393504</span>
           </div>
-          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        </a>
+        <a href="mailto:hello@surfgreen.dev" class="d-flex align-items-center text-decoration-none ms-4">
+          <i class="bx bx-chat fs-2 text-primary"></i>
+          <div class="fs-sm ps-2">
+            <h6 class="fs-sm mb-0">Per E-Mail</h6>
+            <span class="text-nav">hello@surfgreen.dev</span>
+          </div>
+        </a>
+      </div>
+      <nav id="navbarCollapse1" class="collapse navbar-collapse order-lg-2">
+        <hr class="d-lg-none mt-3 mb-2">
+        <ul class="navbar-nav me-auto">
+          {% show_menu 0 100 100 100 "cms/menu/nav_menu.html" %}
+        </ul>
+      </nav>
 
+
+
+
+{% comment "" %}
+      <div id="navbarNav" class="offcanvas offcanvas-end">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </header>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav dark-mode">
+            {% show_menu 0 100 100 100 "cms/menu/nav_menu.html" %}
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+{% endcomment %}
+    </div>
+  </header>
