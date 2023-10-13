@@ -8,7 +8,15 @@ from django.utils.translation import gettext_lazy as _
 class ContactForm(forms.Form):
     service = forms.ChoiceField(
         label=_("Service"),
-        choices=[("django", _("Python Django")), ("consulting", _("Beratung")), ("other", _("Other"))],
+        choices=[
+            ("django", _("Python Django")),
+            ("onetausend", _("1.000 Euro Webseite")),
+            ("green", _("Green Web Development")),
+            ("training", _("Python Django Training")),
+            ("outsourcing", _("Developer Outsourcing")),
+            ("consulting", _("Beratung")),
+            ("other", _("Other")),
+        ],
     )
     name = forms.CharField(label=_("Ihr Name"), max_length=100)
     email = forms.EmailField(label=_("Ihre E-Mail"), max_length=100)

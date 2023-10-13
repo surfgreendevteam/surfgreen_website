@@ -47,3 +47,19 @@
       </div>
     </div>
   </section>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{% for plugin in instance.child_plugin_instances %}
+        {
+          "@type": "Question",
+          "name": "{{plugin.question|escapejs}}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{plugin.answer|escapejs}}"
+          }
+        }{% if not forloop.last %},{% endif %}{% endfor %}
+      ]
+    }
+  </script>
