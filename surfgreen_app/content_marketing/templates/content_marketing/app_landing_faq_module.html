@@ -51,8 +51,7 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [
-        {% for plugin in instance.child_plugin_instances %}
+      "mainEntity": [{% for plugin in instance.child_plugin_instances %}
         {
           "@type": "Question",
           "name": "{{plugin.question|escapejs}}",
@@ -60,8 +59,7 @@
             "@type": "Answer",
             "text": "{{plugin.answer|escapejs}}"
           }
-        }{% if not forloop.last %},{% endif %}
-        {% endfor %}
+        }{% if not forloop.last %},{% endif %}{% endfor %}
       ]
     }
   </script>
