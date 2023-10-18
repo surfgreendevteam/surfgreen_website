@@ -1,11 +1,13 @@
-{% load menu_tags %}
+{% load menu_tags cms_tags %}
     {% for child in children %}
-    <li class="nav-item {% if child.selected %}active{% endif %} {% if child.children %}dropdown{% endif %}">
+    <!--{{children}}-->
+    <!-- Child: {{child}} -->
+    <li class="nav-item {% if child.selected %}bactive{% endif %} {% if child.children %}dropdown{% endif %}">
         {% if child.children %}
-        <a class="nav-link dropdown-toggle" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" data-bs-auto-close="outside" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            {{ child.get_menu_title }}
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu">
             {% for sub_child in child.children %}
                 <li>
                     <a class="dropdown-item" href="{{ sub_child.get_absolute_url }}">
