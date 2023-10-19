@@ -375,6 +375,7 @@ CMS_TEMPLATES = [
     ("cms/blank.html", "Blank template for imprint or data privacy"),
     ("cms/service.html", "Service template"),
     ("cms/course_detail.html", "Course Detail Template"),
+    ("cms/article_detail.html", "Article Detail Template"),
 ]
 # CMS_TEMPLATE = "cms/base.html"
 
