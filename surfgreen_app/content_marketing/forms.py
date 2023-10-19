@@ -9,10 +9,12 @@ class ContactForm(forms.Form):
     service = forms.ChoiceField(
         label=_("Service"),
         choices=[
+            ("default", _("Bitte wählen Sie ein Thema aus")),
             ("django", _("Python Django")),
+            ("django_cms", _("Python Django CMS")),
             ("onetausend", _("1.000 Euro Webseite")),
             ("green", _("Green Web Development")),
-            ("training", _("Python Django Training")),
+            ("training", _("Python Excel Schulung")),
             ("outsourcing", _("Developer Outsourcing")),
             ("consulting", _("Beratung")),
             ("other", _("Other")),
