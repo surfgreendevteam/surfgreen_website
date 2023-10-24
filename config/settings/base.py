@@ -153,6 +153,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -167,6 +168,7 @@ MIDDLEWARE = [
     "cms.middleware.page.CurrentPageMiddleware",
     "cms.middleware.toolbar.ToolbarMiddleware",
     "cms.middleware.language.LanguageCookieMiddleware",
+    "django.middleware.cache.FetchFromCacheMiddleware",
 ]
 
 # STATIC
@@ -378,6 +380,12 @@ CMS_TEMPLATES = [
     ("cms/article_detail.html", "Article Detail Template"),
 ]
 # CMS_TEMPLATE = "cms/base.html"
+
+CMS_CACHE_DURATIONS = {
+    "content": env.int("CMS_CACHE_DURATION_CONTENT", default=86400),
+    "menus": 60,
+    "permissions": 60,
+}
 
 THUMBNAIL_HIGH_RESOLUTION = True
 
