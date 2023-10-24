@@ -381,6 +381,12 @@ CMS_TEMPLATES = [
 ]
 # CMS_TEMPLATE = "cms/base.html"
 
+CMS_CACHE_DURATIONS = {
+    "content": env.int("CMS_CACHE_DURATION_CONTENT", default=86400),
+    "menus": 60,
+    "permissions": 60,
+}
+
 THUMBNAIL_HIGH_RESOLUTION = True
 
 THUMBNAIL_PROCESSORS = (
