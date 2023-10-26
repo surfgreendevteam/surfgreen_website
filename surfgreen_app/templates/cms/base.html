@@ -33,13 +33,13 @@
 
 
         <!-- This file stores project-specific CSS -->
-        {% compress css %}
+
         <!-- Vendor Styles -->
         <link rel="stylesheet" media="screen" href="{% static 'css/boxicons.min.css' %}"/>
         <link rel="stylesheet" media="screen" href="{% static 'css/swiper-bundle.min.css' %}"/>
-        <link rel="stylesheet" rel="preload" href="{% static 'css/theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
 
-        {% endcompress %}
+
         {% endblock %}
         {% comment "" %}
         <link rel="stylesheet" href="{% static 'css/project.css' %}">
@@ -58,6 +58,9 @@
         <!-- Your stuff: Third-party javascript libraries go here -->
 
         <!-- place project specific Javascript in this file -->
+        <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+        <script defer src="{% static 'js/theme.min.js' %}"></script>
 
 
         {% endblock javascript %}
@@ -86,14 +89,7 @@
         {% render_block "js" %}
 
         {% block javascript_end %}
-          {% compress js %}
-            <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-            <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
-            <script defer src="{% static 'js/theme.min.js' %}"></script>
-            {% comment "" %}
-            <script defer src="{% static 'js/project.js' %}"></script>
-            {% endcomment %}
-          {% endcompress %}
+
         {% endblock javascript_end %}
         <script defer id="usercentrics-cmp" async data-eu-mode="true" data-settings-id="q7ZwuZaYFKcXmL" src="https://app.eu.usercentrics.eu/browser-ui/latest/loader.js"/>
       </body>
