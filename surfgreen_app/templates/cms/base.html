@@ -35,10 +35,11 @@
         <!-- This file stores project-specific CSS -->
 
         <!-- Vendor Styles -->
+        {% compress css %}
         <link rel="stylesheet" media="screen" href="{% static 'css/boxicons.min.css' %}"/>
         <link rel="stylesheet" media="screen" href="{% static 'css/swiper-bundle.min.css' %}"/>
         <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
-
+        {% endcompress %}
 
         {% endblock %}
         {% comment "" %}
@@ -52,16 +53,16 @@
         {% block javascript %}
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         <!-- Vendor Scripts --><!-- Bootstrap JS -->
-        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- Your stuff: Third-party javascript libraries go here -->
 
         <!-- place project specific Javascript in this file -->
-        <script defer src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-        <script defer src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
-        <script defer src="{% static 'js/theme.min.js' %}"></script>
-
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/smooth-scroll.polyfills.min.js' %}"></script>
+        <script src="{% static 'js/theme.min.js' %}"></script>
+        <script src="{% static 'js/project.js' %}"></script>
 
         {% endblock javascript %}
       </head>
