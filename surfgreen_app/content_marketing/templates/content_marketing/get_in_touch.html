@@ -77,6 +77,8 @@
                         $(".contact-form-success").show();
                         $('#contact_form input[type="text"], #contact_form input[type="email"], #contact_form textarea').val('');
                         $('#contact_form input[type="checkbox"]').prop('checked', false);
+                        var url = window.location
+                        gtag_report_conversion(url);
                     } else {
                         // Form submission errors
                         // Handle errors as needed
