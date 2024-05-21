@@ -4,7 +4,8 @@ import logging
 from django.core.mail import mail_admins
 from django.http import JsonResponse
 from django.views import View
-
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from .forms import ContactForm as MyForm
 
 logger = logging.getLogger(__name__)
@@ -12,6 +13,10 @@ logger = logging.getLogger(__name__)
 
 class ContactFormAjaxView(View):
     form_class = MyForm
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(ContactFormAjaxView, self).dispatch(*args, **kwargs)
 
     def get(self, request):
         form = self.form_class()
