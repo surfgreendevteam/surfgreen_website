@@ -1,6 +1,7 @@
 from cms.models import CMSPlugin
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from djangocms_text_ckeditor.fields import HTMLField
 
 
 # Create your models here.
@@ -124,13 +125,13 @@ class CourseDetail(CMSPlugin):
     duration = models.PositiveIntegerField(
         blank=True, null=True, help_text="Enter the duration of the course in hours."
     )
-    short_description = models.TextField(blank=True, null=True)
-    course_description = models.TextField(blank=True, null=True)
+    short_description = HTMLField(blank=True, null=True)
+    course_description = HTMLField(blank=True, null=True)
     course_image = models.ImageField(upload_to="course_detail", blank=True, null=True)
     course_image_title = models.CharField(max_length=255, blank=True, null=True)
     course_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
     course_author = models.CharField(max_length=255, blank=True, null=True)
-    course_author_description = models.TextField(blank=True, null=True)
+    course_author_description = HTMLField(blank=True, null=True)
     course_author_image = models.ImageField(upload_to="course_author", blank=True, null=True)
     course_author_image_title = models.CharField(max_length=255, blank=True, null=True)
     course_author_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
