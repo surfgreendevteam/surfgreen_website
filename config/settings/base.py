@@ -381,7 +381,9 @@ CMS_TEMPLATES = [
     ("cms/article_detail.html", "Article Detail Template"),
 ]
 # CMS_TEMPLATE = "cms/base.html"
-
+CMS_PAGE_CACHE = True
+CMS_PLACEHOLDER_CACHE = True
+CMS_PLUGIN_CACHE = True
 CMS_CACHE_DURATIONS = {
     "content": env.int("CMS_CACHE_DURATION_CONTENT", default=86400),
     "menus": 60,
