@@ -220,8 +220,3 @@ SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa: F405
 ]
 # Your stuff...
 # ------------------------------------------------------------------------------
-
-CMS_PAGE_CACHE = True
-CMS_PLACEHOLDER_CACHE = True
-CMS_PLUGIN_CACHE = True
-CMS_CACHE_DURATIONS = {'content': 3600}
