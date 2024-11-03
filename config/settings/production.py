@@ -25,12 +25,15 @@ DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # no
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": env("REDIS_URL"),
+        "LOCATION": env("REDIS_TLS_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             # Mimicing memcache behavior.
             # https://github.com/jazzband/django-redis#memcached-exceptions-behavior
             "IGNORE_EXCEPTIONS": True,
+            "CONNECTION_POOL_KWARGS": {
+                "ssl_cert_reqs": None  # Disables SSL certificate verification
+            },
         },
     }
 }
@@ -217,8 +220,3 @@ SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa: F405
 ]
 # Your stuff...
 # ------------------------------------------------------------------------------
-
-CMS_PAGE_CACHE = True
-CMS_PLACEHOLDER_CACHE = True
-CMS_PLUGIN_CACHE = True
-CMS_CACHE_DURATIONS = {'content': 3600}
