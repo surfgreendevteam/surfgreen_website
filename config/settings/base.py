@@ -108,6 +108,7 @@ LOCAL_APPS = [
     "djangocms_style",
     # Your stuff: custom apps go here
     "surfgreen_app.content_marketing",
+    "surfgreen_app.co2_tracker",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
