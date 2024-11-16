@@ -14,13 +14,16 @@ urlpatterns = [
     # path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
+    path("co2/", include('surfgreen_app.co2_tracker.urls', namespace="c02")),
     # Django CMS
     path("", include("cms.urls")),
     # User management
     path("users/", include("surfgreen_app.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    
     path("content_marketing/", include("surfgreen_app.content_marketing.urls", namespace="content_marketing")),
+    
     path(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
