@@ -157,43 +157,7 @@
   
   
 
-  <script type="module">
-    import { co2 } from 'https://unpkg.com/@tgwf/co2@latest/dist/esm/index.js';
-    window.addEventListener('load', () => {
-      const apiUrl = "{% url 'co2_tracker:track_co2' %}";
-      console.log(apiUrl);
-      const resources = performance.getEntriesByType('resource');
-      const totalBytes = resources.reduce((total, resource) => total + resource.transferSize, 0);
-      console.log(`Total transferred size: ${totalBytes} bytes`);
-      // document.getElementById('bytes-loaded').textContent = `Total transferred size: ${totalBytes} bytes`;
-      const oneByte = new co2({ model: "1byte" });
-      const emissions = oneByte.perByte(totalBytes);
-      
-      console.log(emissions);
-
-      const sessionId = '{{ request.session.session_key }}';
-      const endpoint = apiUrl;
-      fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': '{{ csrf_token }}'
-        },
-        body: JSON.stringify({
-          session_id: sessionId,
-          emissions: emissions,
-          path: window.location.pathname
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    });
-  </script>
+  
   {% endblock javascript_end %}
 
 </body>
