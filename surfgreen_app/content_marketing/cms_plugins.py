@@ -34,7 +34,9 @@ from surfgreen_app.content_marketing.models import (
     WhyChooseUsModule,
     PricingContainerModule,
     PricingItem,
-    PricingFeatureItem
+    PricingFeatureItem,
+    WebdesignHeroModule,
+    WebdesignHeroImage
 )
 
 
@@ -432,3 +434,24 @@ class PricingFeatureItemPublisher(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
         return context
+    
+
+@plugin_pool.register_plugin
+class WebdesignHeroModulePublisher(CMSPluginBase):
+    model = WebdesignHeroModule
+    module = _("Webdesign Hero Module")
+    name = _("Webdesign Hero Module Plugin")
+    render_template = "content_marketing/webdesign_hero_module.html"
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+    
+@plugin_pool.register_plugin
+class WebdesignHeroImagePublisher(CMSPluginBase):
+    model = WebdesignHeroImage
+    module = _("Webdesign Hero Image")
+    name = _("Webdesign Hero Image Plugin")
+    render_template = "content_marketing/webdesign_hero_image.html"
+    require_parent = True

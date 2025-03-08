@@ -337,3 +337,22 @@ class PricingFeatureItem(CMSPlugin):
 
     def __str__(self):
         return self.title
+    
+
+class WebdesignHeroModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    link = models.CharField(max_length=255, blank=True, null=True)
+    link_text = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+    
+class WebdesignHeroImage(CMSPlugin):
+    image = models.ImageField(upload_to="webdesign_hero_image", blank=True, null=True)
+    image_title = models.CharField(max_length=255, blank=True, null=True)
+    image_alt_text = models.CharField(max_length=255, blank=True, null=True)
+    style = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.image_title
