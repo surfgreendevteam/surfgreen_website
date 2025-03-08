@@ -1,4 +1,5 @@
 
+{% load cms_tags i18n %}
 <section class="position-relative overflow-hidden py-4 mb-3">
     <div class="container pt-lg-3">
         <div class="row flex-lg-nowrap">
@@ -9,11 +10,9 @@
         </div>
         <div class="col-lg-6 col-xl-12 text-lg-start pt-5 mt-xl-4">
             <div class="parallax mt-4 ms-4 me-lg-0 ms-lg-n5 ms-xl-n3 mt-lg-n4">
-                <div class="parallax-layer" data-depth="0.1">
-                    {% if instance.image %}
-                    <img src="{{instance.image.url}}" alt="{{instance.title}}">
-                    {% endif %}
-                </div>
+               {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+               {% endfor %}
             </div>
         </div>
     </div>
