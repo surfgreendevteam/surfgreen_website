@@ -1,0 +1,28 @@
+{% load cms_tags i18n %}
+
+
+
+{% with parent=instance.parent.get_plugin_instance %}
+{% if instance.included %}
+<li class="d-flex mb-2">
+    <i class="bx bx-check text-success fs-xl {% if parent.0.is_highlighted %}text-success{%else%}text-primary{% endif %} me-1"></i>
+    {% if parent.is_highlighted %}
+        <span class="">{{instance.title}}</span>
+    {% else %}
+        {{instance.title}} - {{instance.included}}
+    {% endif %}
+
+</li>
+{% else %}
+
+<li class="d-flex mb-2">
+    {% if parent.0.is_highlighted %}
+        <i class="bx bx-x fs-xl text-white me-1" style="color:white"></i>
+        <span class="text-white">{{instance.title}}</span>
+    {% else %}
+        <i class="bx bx-x text-danger fs-xl me-1"></i>
+        {{instance.title}}
+    {% endif %}
+  </li>
+{% endif %}
+{% endwith %}

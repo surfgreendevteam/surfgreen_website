@@ -1,0 +1,59 @@
+{% load cms_tags i18n %}
+<div class="col">
+    <div class="card h-100 border-0 shadow-sm p-xxl-3 {% if instance.is_highlighted %}text-light bg-primary shadow-primary shadow-xl shadow-dark-mode-none{% endif %}" style="min-width: 18rem;">
+        <div class="card-body">
+        <div class="d-flex align-items-center pb-2 pb-md-3 mb-4">
+            <div class="flex-shrink-0 bg-secondary rounded-3" {% if instance.is_highlighted %}style="background-color: rgba(255,255,255, .1);"{% endif %}>
+            {% if instance.image %}
+            <img src="{{instance.image.url}}" width="84" alt="Surfgreen Webdesign Webentwicklung Websites Webseiten Webdesign Agentur">
+            {% endif %}
+        </div>
+            <div class="ps-4">
+            <h3 class="fs-lg fw-normal {% if not instance.is_highlighted %}text-body{% endif %}  mb-2 {% if instance.is_highlighted %}text-light opacity-20{% endif %}">{{instance.title}}</h3>
+            <h4 class="h3 lh-1 mb-0 {% if instance.is_highlighted %}text-light{% endif %}">
+                <span data-monthly-price>{{instance.price}} EUR</span>
+                <span class="{% if not instance.is_highlighted %}text-body{% endif %} fs-sm fw-normal {% if instance.is_highlighted %}text-light opacity-20{% endif %}"> / einmalig</span>
+            </h4>
+            </div>
+        </div>
+        <ul class="list-unstyled fs-sm pb-md-3 mb-3 {% if instance.is_highlighted %}text-light opacity-90{% endif %}">
+            {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="card-footer border-0 pt-0 pb-4">
+        <a href="{{instance.link}}" title={{instance.description}} class="btn btn-outline-primary w-100 {% if instance.is_highlighted %}btn-light{% endif %}">{{instance.link_text}}</a>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Webseite {{instance.title}}",
+      "description": "{{instance.description}}",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "{{instance.price}}"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": 4,
+          "bestRating": 5
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Carl Bednorz"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.4,
+        "reviewCount": 89
+      }
+    }
+</script>

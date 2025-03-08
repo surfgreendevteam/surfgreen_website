@@ -1,0 +1,14 @@
+{% load cms_tags i18n %}
+
+<!-- Pricing -->
+<section class="container py-5 my-md-2 my-lg-4 my-xl-5">
+    <h2 class="h1 text-center pb-3 pb-md-4">{{instance.title}}</h2>
+    <p class="lead text-center fs-lg mb-4 mb-md-5">{{instance.description}}</p>
+    <div class="table-responsive-xxl pt-md-3">
+        <div class="row flex-nowrap pb-4">
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+        </div>
+    </div>
+</section>

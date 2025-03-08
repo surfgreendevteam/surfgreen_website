@@ -32,6 +32,9 @@ from surfgreen_app.content_marketing.models import (
     OfferServiceModule,
     WhyChooseUsItem,
     WhyChooseUsModule,
+    PricingContainerModule,
+    PricingItem,
+    PricingFeatureItem
 )
 
 
@@ -386,6 +389,44 @@ class AppLandingTestimonialsItemPublisher(CMSPluginBase):
     module = _("App Testimonials Module")
     name = _("App Testimonials Item Plugin")
     render_template = "content_marketing/app_landing_testimonials_item.html"
+    require_parent = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+
+@plugin_pool.register_plugin
+class PricingContainerModulePublisher(CMSPluginBase):
+    model = PricingContainerModule
+    module = _("Pricing Container Module")
+    name = _("Pricing Container Module Plugin")
+    render_template = "content_marketing/pricing_container_module.html"
+    allow_children = True
+    
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+    
+@plugin_pool.register_plugin
+class PricingItemPublisher(CMSPluginBase):
+    model = PricingItem
+    module = _("Pricing Item")
+    name = _("Pricing Item Plugin")
+    render_template = "content_marketing/pricing_item.html"
+    require_parent = True
+    allow_children = True
+
+    def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
+        return context
+    
+@plugin_pool.register_plugin
+class PricingFeatureItemPublisher(CMSPluginBase):
+    model = PricingFeatureItem
+    module = _("Pricing Feature Item")
+    name = _("Pricing Feature Item Plugin")
+    render_template = "content_marketing/pricing_feature_item.html"
     require_parent = True
 
     def render(self, context, instance, placeholder):
