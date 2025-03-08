@@ -12,7 +12,8 @@
             <h3 class="fs-lg fw-normal {% if not instance.is_highlighted %}text-body{% endif %}  mb-2 {% if instance.is_highlighted %}text-light opacity-20{% endif %}">{{instance.title}}</h3>
             <h4 class="h3 lh-1 mb-0 {% if instance.is_highlighted %}text-light{% endif %}">
                 <span data-monthly-price>{{instance.price}} EUR</span>
-                <span class="{% if not instance.is_highlighted %}text-body{% endif %} fs-sm fw-normal {% if instance.is_highlighted %}text-light opacity-20{% endif %}"> / einmalig</span>
+                <span class="{% if not instance.is_highlighted %}text-body{% endif %} fs-sm fw-normal {% if instance.is_highlighted %}text-light opacity-20{% endif %}"> / einmalig (netto)</span>
+                
             </h4>
             </div>
         </div>
