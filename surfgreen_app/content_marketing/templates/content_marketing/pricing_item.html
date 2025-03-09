@@ -31,31 +31,32 @@
 </div>
 <script type="application/ld+json">
     {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Webseite {{instance.title}}",
-      "description": "{{instance.description}}",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "price": "{{ instance.price|floatformat:2 }}"
-      },
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 4,
-          "bestRating": 5
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Webseite {{instance.title}}",
+        "description": "{{instance.description}}",
+        "image": "{{ instance.image.url }}",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "{{ instance.price|floatformat:2 }}"
         },
-        "author": {
-          "@type": "Person",
-          "name": "Carl Bednorz"
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": 4,
+                "bestRating": 5
+            },
+            "author": {
+                "@type": "Organization",
+                "name": "Surfgreen.dev GmbH"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 4.4,
+            "reviewCount": 89
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.4,
-        "reviewCount": 89
-      }
     }
 </script>
