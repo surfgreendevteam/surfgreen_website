@@ -35,10 +35,10 @@
       "@type": "Product",
       "name": "Webseite {{instance.title}}",
       "description": "{{instance.description}}",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "EUR",
-        "price": "{{instance.price}}"
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "{{ instance.price|floatformat:2 }}"
       },
       "review": {
         "@type": "Review",
