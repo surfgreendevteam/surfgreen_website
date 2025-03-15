@@ -1,4 +1,4 @@
-{% load cms_tags i18n %}
+{% load cms_tags i18n l10n %}
 <div class="col">
     <div class="card h-100 border-0 shadow-sm p-xxl-3 {% if instance.is_highlighted %}text-light bg-primary shadow-primary shadow-xl shadow-dark-mode-none{% endif %}" style="min-width: 18rem;">
         <div class="card-body">
@@ -39,8 +39,8 @@
         "image": "{{ instance.image.url }}",
         "offers": {
             "@type": "Offer",
-            "priceCurrency": "USD",
-            "price": "{{ instance.price|floatformat:2 }}"
+            "priceCurrency": "EUR",
+            "price": "{{ instance.price|stringformat:'.2f'  }}"
         },
         "review": {
             "@type": "Review",
