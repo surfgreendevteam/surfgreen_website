@@ -1,0 +1,81 @@
+{% load static cms_tags i18n %}
+
+<section class="container py-5 my-2 my-md-4 my-lg-5">
+    <div class="row pt-2 py-xl-3">
+      <div class="col-lg-3 col-md-4">
+        <h2 class="h1 text-center text-md-start mx-auto mx-md-0 pt-md-2" style="max-width: 300px;">{{instance.title}}</h2>
+
+        <!-- Slider controls (Prev / next buttons) -->
+        <div class="d-flex justify-content-center justify-content-md-start pb-4 mb-2 pt-2 pt-md-4 mt-md-5">
+          <button type="button" id="prev-testimonial" class="btn btn-prev btn-icon btn-sm me-2" aria-label="Previous">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <button type="button" id="next-testimonial" class="btn btn-next btn-icon btn-sm ms-2" aria-label="Next">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-8">
+        <div class="swiper mx-n2" data-swiper-options='{
+          "slidesPerView": 1,
+          "spaceBetween": 8,
+          "loop": true,
+          "navigation": {
+            "prevEl": "#prev-testimonial",
+            "nextEl": "#next-testimonial"
+          },
+          "breakpoints": {
+            "500": {
+              "slidesPerView": 3
+            },
+            "1000": {
+              "slidesPerView": 3
+            },
+            "1200": {
+              "slidesPerView": 3
+            }
+          }
+        }'>
+          <div class="swiper-wrapper">
+            {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiper = new Swiper('.swiper', {
+        slidesPerView: 2,
+        navigation: {
+          prevEl: '#prev-brand',
+          nextEl: '#next-brand'
+        },
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        breakpoints: {
+          500: {
+            slidesPerView: 3,
+            spaceBetween: 8
+          },
+          650: {
+            slidesPerView: 4,
+            spaceBetween: 8
+          },
+          900: {
+            slidesPerView: 5,
+            spaceBetween: 8
+          },
+          1100: {
+            slidesPerView: 6,
+            spaceBetween: 8
+          }
+        }
+      });
+    });
+  </script>

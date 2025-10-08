@@ -1,0 +1,48 @@
+<!-- Item -->
+<div class="swiper-slide reco-slide h-auto pt-4">
+    <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0 mx-2">
+      <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+        <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+          <i class="bx bxs-quote-left"></i>
+        </span>
+        <blockquote class="card-body pb-3 mb-0">
+          <p class="mb-0">{{instance.text}}</p>
+        </blockquote>
+        <div class="card-footer border-0 text-nowrap pt-0">
+            <i class="bx bxs-star text-warning"></i>
+            <i class="bx bxs-star text-warning"></i>
+            <i class="bx bxs-star text-warning"></i>
+            <i class="bx bxs-star text-warning"></i>
+            <i class="bx bxs-star text-warning"></i>
+        </div>
+      </div>
+      <figcaption class="d-flex align-items-center ps-4 pt-4">
+        <div class="ps-3">
+          <h6 class="fs-sm fw-semibold mb-0">{{instance.author}}</h6>
+          <span class="fs-xs text-muted">{{instance.author_role}}</span>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "author": {
+    "@type": "Person",
+    "name": "{{instance.author}}"
+    },
+    "reviewBody": "{{instance.text}}",
+    "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{instance.star_count}}",
+    "bestRating": "5",
+    "worstRating": "4"
+    },
+    "itemReviewed": {
+    "@type": "Service",
+    "name": "Python Django Web Development of SaaS"
+    }
+}
+</script>

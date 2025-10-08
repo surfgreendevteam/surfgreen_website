@@ -374,3 +374,21 @@ class LogoItem(CMSPlugin):
 
     def __str__(self):
         return str(self.id)
+    
+
+class RecommendationContainerModule(CMSPlugin):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+    
+
+class RecommendationItem(CMSPlugin):
+    text = models.TextField()
+    author = models.CharField(max_length=255)
+    author_role = models.CharField(max_length=255, blank=True, null=True)
+    star_count = models.IntegerField()
+
+    def __str__(self):
+        return self.author

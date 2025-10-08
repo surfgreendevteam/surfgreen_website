@@ -39,6 +39,8 @@ from surfgreen_app.content_marketing.models import (
     WebdesignHeroImage,
     LogoContainerModule,
     LogoItem,
+    RecommendationContainerModule,
+    RecommendationItem,
 )
 
 
@@ -477,4 +479,22 @@ class LogoItemPublisher(CMSPluginBase):
     module = _("Logo Item")
     name = _("Logo Item Plugin")
     render_template = "content_marketing/logo_item.html"
+    require_parent = True
+
+@plugin_pool.register_plugin
+class RecommendationContainerModule(CMSPluginBase):
+    model = RecommendationContainerModule
+    module = _("RecommendationContainerModule")
+    name = _("RecommendationContainerModule Plugin")
+    render_template = "content_marketing/recommendation_container_module.html"
+    allow_children = True
+
+
+
+@plugin_pool.register_plugin
+class RecommendationItemPlugin(CMSPluginBase):
+    model = RecommendationItem
+    module = _("Recommendation Item")
+    name = _("RecommendationItem Plugin")
+    render_template = "content_marketing/recommendation_item.html"
     require_parent = True
