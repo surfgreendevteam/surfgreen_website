@@ -60,6 +60,7 @@
     $(document).ready(function() {
         $('#contact_form').submit(function(event) {
             event.preventDefault();  // Prevent the default form submission
+            gtagSendEvent('form_submission');
             $(".contact-form-success").hide();
             $(".contact-form-error").hide();
             var formData = $(this).serialize();
